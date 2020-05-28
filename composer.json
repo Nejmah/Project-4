@@ -1,0 +1,21 @@
+{
+    "name": "aurele/project-4",
+    "authors": [
+        {
+            "name": "aurele",
+            "email": "aurelie.nejmah@gmail.com"
+        }
+    ],
+    "autoload": {
+	"psr-4": {
+	    "App\\": "src/"
+	}
+    },
+    "require": {
+        "classpreloader/classpreloader": "^4.0",
+        "altorouter/altorouter": "^2.0"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.4"
+    }
+}
