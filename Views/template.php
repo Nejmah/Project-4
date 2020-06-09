@@ -4,7 +4,7 @@
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title><?= $title ?></title>
+        <title><?= $metaTitle ?></title>
         <link rel="icon" type="image/png" href="assets/img/favicon.png">
 
 		<!-- Bootstrap CSS -->
@@ -16,7 +16,8 @@
         <?= $content ?>
 		
 		<footer>
-        	<p>Droits d'auteurs réservés.</p>
+        	<p>Copyright © Jean Forteroche 2020</p>
+			<!-- <p>Droits d'auteurs réservés.</p> -->
 		</footer>
 		
         <!-- Optional JavaScript -->

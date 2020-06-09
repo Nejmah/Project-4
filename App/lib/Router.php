@@ -3,12 +3,13 @@ namespace App\lib;
 
 use App\lib\Route;
 use App\Controller\Frontend;
+use App\Controller\Backend;
 
 class Router {
 
     protected $parts = [];
     protected $route;
-    protected $routes = []; //Tableau de routes (chaque route est un objet)
+    protected $routes = [];
     protected $uri;
     protected $verb;
 
@@ -26,9 +27,7 @@ class Router {
     }
 
     public function match() {
-        //echo $this->uri . "<br>" . $this->verb; exit;
         foreach ($this->routes as $route) {
-            //print_r($route);
             if ($route->getUri() == $this->uri && $route->getVerb() == $this->verb) {
                 $this->route = $route;
                 return true;
@@ -39,17 +38,17 @@ class Router {
     }
 
     public function go() {
-        // 1) On instancie le controller (Frontend ou Backend)
+        // On instancie le controller (Frontend ou Backend)
         $controllerName = $this->route->getController(); 
         //$controller = new $controllerName(); // Ne marche pas...
         if ($controllerName == "Frontend") {
             $controller = new Frontend();
         }
         else {
-            // $controller = new Backend();
+            $controller = new Backend();
         }
 
-        // 2) On exécute l'action
+        // On exécute l'action
         $actionName = $this->route->getAction();
         $controller->$actionName();
     }
@@ -65,5 +64,4 @@ class Router {
         return $parts;
     }
 }
-
 ?>

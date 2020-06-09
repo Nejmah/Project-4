@@ -1,7 +1,7 @@
 <?php
     if (empty($chapters)) {
         ?>
-        <p>Désolé, il n'y a pas de chapitre publié pour le moment...</p>
+        <p class="no-chapter-msg">Désolé, il n'y a pas de chapitres publiés pour le moment...</p>
         <?php
     }
     else {

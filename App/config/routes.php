@@ -10,18 +10,17 @@ $routes = [];
 // Page d'accueil
 $routes[] = new Route('GET', '/', 'Frontend', 'homePage');
 
-// Page liste des chapitres
+// Page de la liste des chapitres
 $routes[] = new Route('GET', '/chapters', 'Frontend', 'chaptersPage');
 
-// $router->add('GET', '/chapters', function() {
-//     $frontend = new Frontend();
-//     $frontend->chaptersPage();
-// }, 'chapters');
-
+// Page d'un chapitre
+// ...
 
 // 2) Déclaration des routes du Backend
 // ------------------------------------
 
+// Page de connexion
+$routes[] = new Route('GET', '/login', 'Backend', 'loginPage');
 
 foreach ($routes as $route) {
     $router->add($route);

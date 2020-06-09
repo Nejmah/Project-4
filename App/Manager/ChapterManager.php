@@ -1,14 +1,15 @@
 <?php
 namespace App\Manager;
 
-class ChapterManager {
-    private $_db; // Instance de PDO (PHP Data Objetcs)
+use App\lib\DataBase;
 
-    // Création d'un constructeur pour assigner à l'attribut $_db un objet PDO
+class ChapterManager {
+    private $db; // Instance de PDO (PHP Data Objetcs)
+
+    // Création d'un constructeur pour assigner à l'attribut $db un objet PDO
     // dès l'instanciation du manager
-    public function __construct($db) {
-        // Setter pour pouvoir modifier l'attribut $_db
-        $this->setDb($db);
+    public function __construct() {
+        $this->db = DataBase::getMysqlConnexion();
     }
 
     public function add(Chapter $chapter) {
@@ -29,7 +30,7 @@ class ChapterManager {
     public function getList() {
         $chapters = [];
 
-        $req = $this->_db->query('SELECT id, title, content, DATE_FORMAT (created_at, \'%d/%m/%y\') AS createdAt FROM chapters ORDER BY created_at DESC LIMIT 0, 3');
+        $req = $this->db->query('SELECT id, title, content, DATE_FORMAT (created_at, \'%d/%m/%y\') AS createdAt FROM chapters ORDER BY created_at DESC LIMIT 0, 3');
 
         while ($data = $req->fetch(\PDO::FETCH_ASSOC)) { // Chaque entrée sera récupérée et placée dans le tableau $chapters
             $chapters[] = new Chapter($data);
@@ -42,10 +43,6 @@ class ChapterManager {
         // Prépare une requête de type UPDATE
         // Assignation des valeur à la requête
         // Exécution de la requête
-    }
-
-    public function setDB(\PDO $db) {
-        $this->_db = $db;
     }
 }
 ?>
