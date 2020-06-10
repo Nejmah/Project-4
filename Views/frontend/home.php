@@ -1,5 +1,9 @@
 <div class="container home-page">
     <h1>Billet simple pour l'Alaska</h1>
+    <div class="presentation">
+        <p class="under-title">Découvrez le nouveau roman de Jean Forteroche</p>
+        <!-- <img src="assets/img/book4.png" alt="book"> -->
+    </div>
     <?php
     // Si l'utilisateur n'est pas connecté
     if (!isset($_SESSION['admin-connected'])) {
@@ -18,7 +22,7 @@
 
     <div>
         <div>
-            <img src="assets/img/book.jpeg" alt="book">
+            <!-- <img src="assets/img/book.jpeg" alt="book"> -->
         </div>    
         <div class="author-presentation">
             <p class="text-presentation">Acteur et écrivain français, <strong>Jean Forteroche</strong> est passionné d'alpinisme.
@@ -27,9 +31,9 @@
             sur un nouveau roman : <em>Billet simple pour l'Alaska</em>, récit qui retrace
             l'histoire véridique d'un jeune homme qui a troqué la civilisation pour un retour
             à la vie sauvage... Découvrez ses aventures chapitre par chapitre sur son blog...</p>
-            <p class="chapters-button text-center">
-                <a class="btn btn-secondary btn-lg" href="<?= $loginPageUrl ?>">Chapitres</a>
-            </p>
         </div>
+        <p class="chapters-button text-center">
+                <a class="text-chapters-button btn btn-secondary btn-lg" href="<?= $loginPageUrl ?>">Chapitres</a>
+        </p>
     </div>
 </div>
