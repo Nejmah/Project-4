@@ -13,7 +13,7 @@ class Frontend extends Controller {
 
     public function homePage() {
         $this->render('home', [
-            'loginPageUrl' => "/login", // TODO: trouver un moyen d'utiliser le Router
+            'loginPageUrl' => "/login",
             'metaTitle' => "Accueil"
         ]);
     }
@@ -28,6 +28,20 @@ class Frontend extends Controller {
             'metaTitle' => "Chapitres",
             'chapters' => $chapters 
         ]);
+    }
+
+    public function chapterPage($id) {
+        $manager = new ChapterManager();
+
+        $chapter = $manager->getChapter($id);
+
+        $this->render('chapter', [
+            'loginPageUrl' => "/chapters/[id]",
+            'metaTitle' => "Chapitres",
+            'chapter' => $chapter
+        ]);
+
+
     }
 }
 ?>

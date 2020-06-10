@@ -22,8 +22,14 @@ class ChapterManager {
         // Exécute une requête de type DELETE
     }
 
-    public function get($id) {
-        // Exécute une requête de type SELECT avec une clause WHERE et retourne un objet de type Chapter
+    // Retourne un chapitre
+    public function getChapter($id) {
+        $req = $this->db->prepare('SELECT id, title, content, DATE_FORMAT (created_at, \'%d/%m/%y\') AS creation_date_fr FROM chapters WHERE id = ?');
+        $req->execute(array($id));
+        $chapter = $req->fetch();
+
+        return $chapter;
+
     }
 
     // Retourne la liste de tous les chapitres

@@ -1,29 +1,48 @@
 <?php
 
+use App\Controller;
 use App\lib\Route;
 
-$routes = [];
+/*----------------------------------------------
+                    FRONTEND
+----------------------------------------------*/
 
-// 1) Déclaration des routes du Frontend
-// -------------------------------------
+/*Home*/
+$router->add(new Route('GET', '/', function() {
+    // $controller = new Frontend();
+    $controller = new App\Controller\Frontend();
+    $controller->homePage();
+}));
 
-// Page d'accueil
-$routes[] = new Route('GET', '/', 'Frontend', 'homePage');
+// $routes[] = new Route('GET', '/', 'Frontend', 'homePage');
 
-// Page de la liste des chapitres
-$routes[] = new Route('GET', '/chapters', 'Frontend', 'chaptersPage');
+/*Chapters*/
+$router->add(new Route('GET', '/chapters', function() {
+    // $controller = new Frontend();
+    $controller = new App\Controller\Frontend();
+    $controller->chaptersPage();
+}));
 
-// Page d'un chapitre
-// ...
+// $route = new Route('GET', '/chapters', 'Frontend', 'chaptersPage');
 
-// 2) Déclaration des routes du Backend
-// ------------------------------------
+/*Chapter*/
+$router->add(new Route('GET', '/chapters/[id]', function($id) {
+    // $controller = new Frontend();
+    $controller = new App\Controller\Frontend();
+    $controller->chapterPage($id);
+}));
 
-// Page de connexion
-$routes[] = new Route('GET', '/login', 'Backend', 'loginPage');
+/*----------------------------------------------
+                    BACKEND
+----------------------------------------------*/
 
-foreach ($routes as $route) {
-    $router->add($route);
-}
+/*Login*/
+$router->add(new Route('GET', '/login', function() {
+    // $controller = new Backend();
+    $controller = new App\Controller\Frontend();
+    $controller->loginPage();
+}));
+
+// $routes[] = new Route('GET', '/login', 'Backend', 'loginPage');
 
 ?>

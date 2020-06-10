@@ -8,18 +8,19 @@ use App\Controller\Backend;
 class Router {
 
     protected $parts = [];
-    protected $route;
+    protected $currentRoute;
     protected $routes = [];
     protected $uri;
     protected $verb;
 
     public function __construct() {
         $this->uri = $_SERVER['REQUEST_URI'];
+
         // Fix pour site en local
         $this->uri = str_replace("/Project-4", "", $this->uri);
 
         $this->verb = $_SERVER['REQUEST_METHOD'];
-        $this->parts = $this->uriToArray($this->uri);
+        $this->parts = Route::uriToArray($this->uri);
     }
 
     public function add(Route $route) {
@@ -28,40 +29,38 @@ class Router {
 
     public function match() {
         foreach ($this->routes as $route) {
-            if ($route->getUri() == $this->uri && $route->getVerb() == $this->verb) {
-                $this->route = $route;
-                return true;
+            if ($route->getVerb() == $this->verb) {
+                if ($route->getUri() == $this->uri && !$route->getHasParam()) {
+                    $this->currentRoute = $route;
+                    return true;
+                }
+            }
+
+            if ($route->getHasParam()) {
+                $routeParts = $route->getParts();
+                if (count($this->parts) == count($routeParts)) {
+                    $isTheSame = true;
+                    foreach($this->parts as $index => $part) {
+                        if ($part != $routeParts[$index] && $index != $route->getParamIndex()) {
+                            $isTheSame = false;
+                            break;
+                        }
+                    } 
+                            
+                    if ($isTheSame) {
+                        $this->currentRoute = $route;
+                        return true;
+                    }
+                }
             }
         }
-
         return false;
     }
 
     public function go() {
-        // On instancie le controller (Frontend ou Backend)
-        $controllerName = $this->route->getController(); 
-        //$controller = new $controllerName(); // Ne marche pas...
-        if ($controllerName == "Frontend") {
-            $controller = new Frontend();
-        }
-        else {
-            $controller = new Backend();
-        }
-
-        // On exécute l'action
-        $actionName = $this->route->getAction();
-        $controller->$actionName();
-    }
-
-    private function uriToArray($uri) {
-        $parts = explode('/', $uri);
-
-        // Enlève le premier élément du tableau s'il est vide
-        if ($parts[0] === '') {
-            array_shift($parts);
-        }
-
-        return $parts;
+        $param = $this->parts[$this->currentRoute->getParamIndex()];
+		
+		call_user_func($this->currentRoute->getCallback(), $param);
     }
 }
 ?>

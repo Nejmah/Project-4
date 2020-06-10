@@ -35,9 +35,11 @@ footer {
     transform: translateX(-50%);
 }
 
-/* FRONTED */
+/*----------------------------------------------
+                    FRONTEND
+----------------------------------------------*/
 
-/* Page d'accueil */
+/*Home*/
 
 .home-page img {
     width: 250px;
@@ -60,7 +62,7 @@ footer {
     margin-left: 250px;
 }
 
-/* Page(s) d'affichage des chapitres/d'un chapitre */
+/*Chapters & Chapter*/
 
 .no-chapter-msg {
     text-align: center;
@@ -80,18 +82,18 @@ footer {
     top: 20px;
 }
 
-.title-post {
+.title-chapter {
     background-color: rgb(60, 106, 141);
     text-align: center;
     color: white;
     padding: 10px;
 }
 
-.title-post p {
+.title-chapter p {
     margin: 0;
 }
 
-.content-post {
+.content-chapter {
     background-color: white;
     padding: 20px;
     margin-bottom: 20px;
@@ -106,7 +108,11 @@ footer {
     font-style: italic;
 }
 
-/* Page de connnexion */
+/*----------------------------------------------
+                    BACKEND
+----------------------------------------------*/
+
+/*Login*/
 
 .login-form,
 .success-message,
@@ -126,8 +132,6 @@ footer {
     font-size: initial;
     font-weight: bold;
 }
-
-/* BACKEND */
 
 /* Page d'administration */
 
