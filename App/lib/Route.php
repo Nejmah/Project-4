@@ -15,7 +15,7 @@ class Route {
         $this->uri = $uri;
         $this->callback = $callback;
         $this->hasParam = $this->hasParam();
-        $this->parts = $this->uriToArray($this->uri);
+        $this->parts = $this->uriToArray($uri);
         $this->paramIndex = $this->findParamIndex();
     }
 

@@ -13,12 +13,12 @@ body:not(.admin-page) {
 }
 
 h1 {
-    color: white;
+    /* color: white; */
     text-align: center;
-    margin-top: 35px;
-    margin-bottom: 45px;
+    /* margin-top: 35px; */
+    /* margin-bottom: 45px; */
     /* margin-bottom: 60px; */
-    font-size: 3.5em;
+    /* font-size: 3.5em; */
 }
 
 .login-button,
@@ -42,32 +42,57 @@ footer {
 
 /*Home*/
 
-.home-page img {
-    width: 250px;
+.moutain-img {
+    width: 200px;
 }
 
-.presentation {
-    display: flex;
-    justify-content: center;
+.navbar {
+    padding: 20px 0 0 0;
 }
 
-.presentation p {
-    font-size: 2.2em;
+.navbar-light .navbar-nav .nav-link {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link:hover {
     color: rgb(60, 106, 141);
+}
+
+.home h1 {
+    font-size: 5em;
+    font-weight: bold;
+    color: rgb(21, 62, 104);
+    margin-top: 125px;
+}
+
+.home .under-title {
+    font-size: 2.2em;
+    color: white;
+    text-align: center;
     font-style: italic;
     font-weight: 700;
     padding-top: 25px;
     margin-right: 20px;
 }
 
-.presentation img {
-    width: 155px;
-    margin-left: 20px;
+/*About*/
+
+.about .under-title {
+    font-size: 2.2em;
+    color: rgb(21, 62, 104);
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
 }
 
-.under-title {
-    font-size: 2em;
-    text-align: center;
+.author-presentation {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 50px 0 60px 0;
 }
 
 .text-presentation {
@@ -82,23 +107,15 @@ footer {
     padding-bottom: 40px;
 }
 
-.text-chapters-button {
-    font-size: 25px;
-}
-
-.author-presentation {
-    background-color: rgba(255, 255, 255, 0.5);
-    margin-top: 30px;
-    /* margin-left: 250px; */
-}
-
 /*Chapters & Chapter*/
 
 .no-chapter-msg {
-    text-align: center;
     font-size: 2em;
-    color: white;
-    margin-top: 20px;
+    color: rgb(21, 62, 104);
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
+    margin-top: 50px;
 }
 
 .list-posts-view-title {
@@ -147,16 +164,22 @@ footer {
 .login-form,
 .success-message,
 .error-message {
-    margin-top: 50vh;
+    margin-top: 190px;
+    /* margin-top: 50vh; */
     /* poussé de la moitié de hauteur de viewport */
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
     /* tiré de la moitié de sa propre hauteur */
 }
 
-.login-form .form-row {
+.login-form input,
+.login-form button {
+    font-size: 18px;
+}
+
+/* .login-form .form-row {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 20px;
-}
+} */
 
 .invalid-feedback {
     font-size: initial;
@@ -242,4 +265,12 @@ footer {
 .modal-title {
     color: red;
     font-weight: bold;
+}
+
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav {
+        width: 100%;
+        justify-content: space-between;
+    }
 }

@@ -3,15 +3,7 @@ namespace App\Manager;
 
 use App\lib\DataBase;
 
-class ChapterManager {
-    private $db; // Instance de PDO (PHP Data Objetcs)
-
-    // Création d'un constructeur pour assigner à l'attribut $db un objet PDO
-    // dès l'instanciation du manager
-    public function __construct() {
-        $this->db = DataBase::getMysqlConnexion();
-    }
-
+class ChapterManager extends Manager {
     public function add(Chapter $chapter) {
         // Préparation de la requête d'insertion
         // Assignation des valeurs pour l'id, la date de création, le titre et le contenu

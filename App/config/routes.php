@@ -1,6 +1,7 @@
 <?php
 
-use App\Controller;
+use App\Controller\Frontend;
+use App\Controller\Backend;
 use App\lib\Route;
 
 /*----------------------------------------------
@@ -9,12 +10,24 @@ use App\lib\Route;
 
 /*Home*/
 $router->add(new Route('GET', '/', function() {
-    // $controller = new Frontend();
-    $controller = new App\Controller\Frontend();
+    $controller = new Frontend();
+    // $controller = new App\Controller\Frontend();
+    $controller->homePage();
+}));
+
+$router->add(new Route('GET', '/home', function() {
+    $controller = new Frontend();
+    // $controller = new App\Controller\Frontend();
     $controller->homePage();
 }));
 
 // $routes[] = new Route('GET', '/', 'Frontend', 'homePage');
+
+/*About*/
+$router->add(new Route('GET', '/about', function () {
+    $controller = new App\Controller\Frontend();
+    $controller->aboutPage();
+}));
 
 /*Chapters*/
 $router->add(new Route('GET', '/chapters', function() {
@@ -39,7 +52,7 @@ $router->add(new Route('GET', '/chapters/[id]', function($id) {
 /*Login*/
 $router->add(new Route('GET', '/login', function() {
     // $controller = new Backend();
-    $controller = new App\Controller\Frontend();
+    $controller = new App\Controller\Backend();
     $controller->loginPage();
 }));
 

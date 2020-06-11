@@ -18,6 +18,12 @@ class Frontend extends Controller {
         ]);
     }
 
+    public function aboutPage() {
+        $this->render('about', [
+            'metaTitle' => "A propos"
+        ]);
+    }
+
     public function chaptersPage() {     
         $manager = new ChapterManager();
 

@@ -12,11 +12,41 @@
 		<link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/fonts.css">
   	</head>
-  	<body class="<?= $bodyClasses ?>">
-        <?= $content ?>
+	
+
+	<body class="<?= $bodyClasses ?>">
+		<div class="container">
+			<header>
+				<nav class="navbar navbar-expand-lg navbar-light">
+					<a class="navbar-brand" href="/Project-4"><img class="moutain-img" src="assets/img/mountain.png" alt="mountain"></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav">
+							<li class="nav-item active">
+								<a class="nav-link" href="/Project-4">ACCUEIL</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/Project-4/about">A PROPOS</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/Project-4/chapters">CHAPITRES</a>
+							</li>
+							<li>
+								<a class="nav-link" href="/Project-4/login">ADMINISTRATION</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</header>
+
+			<?= $content ?>
+		</div>
+
 		
 		<footer>
-        	<p>Copyright © Jean Forteroche 2020</p>
+			<p>Copyright © Jean Forteroche 2020</p>
 			<!-- <p>Droits d'auteurs réservés.</p> -->
 		</footer>
 		

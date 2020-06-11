@@ -1,39 +1,31 @@
-<div class="container home-page">
-    <h1>Billet simple pour l'Alaska</h1>
-    <div class="presentation">
-        <p class="under-title">Découvrez le nouveau roman de Jean Forteroche</p>
-        <!-- <img src="assets/img/book4.png" alt="book"> -->
-    </div>
-    <?php
-    // Si l'utilisateur n'est pas connecté
-    if (!isset($_SESSION['admin-connected'])) {
-    ?>
-        <!-- On affiche le bouton de connexion -->
-        <a class="btn btn-outline-primary login-button" href="<?= $loginPageUrl ?>">Connexion</a>
-    <?php
-    }
-    else {
-    ?>
-        <!-- Sinon, on affiche un bouton pour accéder au backend -->
-        <a class="btn btn-outline-primary login-button" href="index.php?action=admin-index">Administration</a>
-    <?php
-    }
-    ?>
+<div class="home">
 
-    <div>
-        <div>
-            <!-- <img src="assets/img/book.jpeg" alt="book"> -->
-        </div>    
-        <div class="author-presentation">
-            <p class="text-presentation">Acteur et écrivain français, <strong>Jean Forteroche</strong> est passionné d'alpinisme.
-            Après avoir écrit <em>Tragédie à l'Everest</em>, récit qui lui a valu sa notoriété et
-            qui fut adapté dans le film Everest en 2015, Jean Forteroche travaille actuellement
-            sur un nouveau roman : <em>Billet simple pour l'Alaska</em>, récit qui retrace
-            l'histoire véridique d'un jeune homme qui a troqué la civilisation pour un retour
-            à la vie sauvage... Découvrez ses aventures chapitre par chapitre sur son blog...</p>
-        </div>
-        <p class="chapters-button text-center">
-                <a class="text-chapters-button btn btn-secondary btn-lg" href="<?= $loginPageUrl ?>">Chapitres</a>
-        </p>
-    </div>
+    <!-- <head>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#top"><img class="moutain-img" src="assets/img/mountain.png" alt="mountain"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="">ACCUEIL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">A PROPOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">CHAPITRES</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="">ADMINISTRATION</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </head> -->
+
+    <h1>Billet simple pour l'Alaska</h1>
+    <p class="under-title">Découvrez le nouveau roman de Jean Forteroche</p>
+
 </div>
