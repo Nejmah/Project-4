@@ -63,14 +63,14 @@ footer {
     color: rgb(60, 106, 141);
 }
 
-.home h1 {
+.home-page h1 {
     font-size: 5em;
     font-weight: bold;
     color: rgb(21, 62, 104);
     margin-top: 125px;
 }
 
-.home .under-title {
+.home-page .under-title {
     font-size: 2.2em;
     color: white;
     text-align: center;
@@ -82,7 +82,7 @@ footer {
 
 /*About*/
 
-.about .under-title {
+.about-page .under-title {
     font-size: 2.2em;
     color: rgb(21, 62, 104);
     text-align: center;
@@ -118,16 +118,24 @@ footer {
     margin-top: 50px;
 }
 
+.chapter-page h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    margin-bottom: 25px;
+}
+
 .list-posts-view-title {
     margin-bottom: 35px;
 }
 
-.home-button,
+/* .home-button,
 .admin-return {
     position: absolute;
     left: 20px;
     top: 20px;
-}
+} */
 
 .title-chapter {
     background-color: rgb(60, 106, 141);
@@ -151,8 +159,18 @@ footer {
 }
 
 .return {
-    font-size: 20px;
+    font-size: 22px;
     font-style: italic;
+    font-weight: bold;
+}
+
+.return a:visited {
+    color: rgb(60, 106, 141);
+}
+
+.return a:hover {
+    color: white;
+    text-shadow: 1px 1px 2px black;
 }
 
 /*----------------------------------------------

@@ -1,4 +1,4 @@
-<div class="about">
+<div class="about-page">
 
     <p class="under-title">À propos de l'auteur</p>
 

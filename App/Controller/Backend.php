@@ -14,8 +14,7 @@ class Backend extends Controller {
 
     public function loginPage() {
         $this->render('login', [
-            'metaTitle' => "Connexion",
-            'loginPageUrl' => "/Project-4" // A changer...
+            'metaTitle' => "Connexion"
         ]);
     }
 }

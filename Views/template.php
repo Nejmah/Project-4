@@ -5,12 +5,12 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title><?= $metaTitle ?></title>
-        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <link rel="icon" type="image/png" href="/Project-4/assets/img/favicon.png">
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/fonts.css">
+		<link rel="stylesheet" href="/Project-4/assets/css/style.css">
+        <link rel="stylesheet" href="/Project-4/assets/css/fonts.css">
   	</head>
 	
 
@@ -18,7 +18,7 @@
 		<div class="container">
 			<header>
 				<nav class="navbar navbar-expand-lg navbar-light">
-					<a class="navbar-brand" href="/Project-4"><img class="moutain-img" src="assets/img/mountain.png" alt="mountain"></a>
+					<a class="navbar-brand" href="/Project-4"><img class="moutain-img" src="/Project-4/assets/img/mountain.png" alt="mountain"></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>

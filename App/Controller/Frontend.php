@@ -42,7 +42,7 @@ class Frontend extends Controller {
         $chapter = $manager->getChapter($id);
 
         $this->render('chapter', [
-            'loginPageUrl' => "/chapters/[id]",
+            // 'loginPageUrl' => "/chapters/[id]",
             'metaTitle' => "Chapitres",
             'chapter' => $chapter
         ]);
