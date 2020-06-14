@@ -1,11 +1,8 @@
-<!-- <a class="btn btn-outline-light home-button" href="<?= $loginPageUrl ?>">Accueil</a> -->
-
-<form class="login-form" method="post" action="index.php?action=admin-index">
+<form class="login-form" method="post" action="/Project-4/login-check">
     <div class="form-row justify-content-center">
         <div class="col-md-3">
             <?php
-            // Si la variable existe dans le tableau et si sa valeur c'est invalid
-            if (isset($_GET['error']) && $_GET['error'] == 'invalid')
+            if (isset($error) && $error == 'invalid-password')
             {
             ?>
                 <input type="password" class="form-control is-invalid" id="password" name="password" placeholder="Mot de passe" required>

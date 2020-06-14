@@ -58,6 +58,10 @@ footer {
     margin-right: 20px;
 }
 
+.navbar-light .navbar-nav .nav-item:last-child .nav-link {
+    margin-right: 0;
+}
+
 .navbar-light .navbar-nav .active>.nav-link,
 .navbar-light .navbar-nav .nav-link:hover {
     color: rgb(60, 106, 141);
@@ -130,13 +134,6 @@ footer {
     margin-bottom: 35px;
 }
 
-/* .home-button,
-.admin-return {
-    position: absolute;
-    left: 20px;
-    top: 20px;
-} */
-
 .title-chapter {
     background-color: rgb(60, 106, 141);
     text-align: center;
@@ -158,10 +155,11 @@ footer {
     text-align: center;
 }
 
-.return {
+.return a {
     font-size: 22px;
     font-style: italic;
     font-weight: bold;
+    color: rgb(60, 106, 141);
 }
 
 .return a:visited {
@@ -194,17 +192,26 @@ footer {
     font-size: 18px;
 }
 
-/* .login-form .form-row {
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 20px;
-} */
-
 .invalid-feedback {
     font-size: initial;
     font-weight: bold;
 }
 
-/* Page d'administration */
+/*Administration*/
+
+.admin-page {
+    background-color: rgb(155, 165, 180);
+}
+
+.admin-page h1 {
+    font-size: 2.2em;
+    color: rgb(21, 62, 104);
+    font-weight: 700;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 20px;
+    padding: 30px;
+}
 
 .admin-nav {
     display: flex;
@@ -216,10 +223,14 @@ footer {
     display: initial;
 }
 
+.admin-page .nav-pills {
+    width: 100%;
+}
+
 .admin-nav li {
-    padding: 20px;
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
+    margin: 20px 0 20px 0;
 }
 
 .admin-nav li a {
@@ -227,10 +238,11 @@ footer {
 }
 
 .admin-nav li a:hover {
-    color: rgb(53, 58, 63);
+    color: rgb(60, 106, 141);
     border: rgb(223, 224, 226) 1px solid;
     border-radius: 5px;
-    background-color: rgb(223, 224, 226);
+    /* background-color: rgb(223, 224, 226); */
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 /* Page de gestion des billets */

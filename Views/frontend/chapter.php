@@ -2,7 +2,7 @@
 
     <h1>Billet simple pour l'Alaska</h1>
 
-    <p class="return"><a href="">Retour à la liste des billets</a></p>
+    <p class="return"><a href="/chapters">Retour à la liste des chapitres</a></p>
 
     <div class="title-chapter">
         <h3><?= htmlspecialchars($chapter['title']); ?></h3>

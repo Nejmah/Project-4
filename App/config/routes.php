@@ -11,7 +11,6 @@ use App\lib\Route;
 /*Home*/
 $router->add(new Route('GET', '/', function() {
     $controller = new Frontend();
-    // $controller = new App\Controller\Frontend();
     $controller->homePage();
 }));
 
@@ -54,6 +53,20 @@ $router->add(new Route('GET', '/login', function() {
     // $controller = new Backend();
     $controller = new App\Controller\Backend();
     $controller->loginPage();
+}));
+
+/*Loinn-chekc*/
+$router->add(new Route('POST', '/login-check', function() {
+    // $controller = new Backend();
+    $controller = new App\Controller\Backend();
+    $controller->loginCheck();
+}));
+
+/*Admin-pae*/
+$router->add(new Route('GET', '/admin', function() {
+    // $controller = new Backend();
+    $controller = new App\Controller\Backend();
+    $controller->adminPage();
 }));
 
 // $routes[] = new Route('GET', '/login', 'Backend', 'loginPage');
