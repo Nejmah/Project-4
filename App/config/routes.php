@@ -14,14 +14,6 @@ $router->add(new Route('GET', '/', function() {
     $controller->homePage();
 }));
 
-$router->add(new Route('GET', '/home', function() {
-    $controller = new Frontend();
-    // $controller = new App\Controller\Frontend();
-    $controller->homePage();
-}));
-
-// $routes[] = new Route('GET', '/', 'Frontend', 'homePage');
-
 /*About*/
 $router->add(new Route('GET', '/about', function () {
     $controller = new App\Controller\Frontend();
@@ -30,16 +22,12 @@ $router->add(new Route('GET', '/about', function () {
 
 /*Chapters*/
 $router->add(new Route('GET', '/chapters', function() {
-    // $controller = new Frontend();
     $controller = new App\Controller\Frontend();
     $controller->chaptersPage();
 }));
 
-// $route = new Route('GET', '/chapters', 'Frontend', 'chaptersPage');
-
 /*Chapter*/
 $router->add(new Route('GET', '/chapters/[id]', function($id) {
-    // $controller = new Frontend();
     $controller = new App\Controller\Frontend();
     $controller->chapterPage($id);
 }));
@@ -50,25 +38,30 @@ $router->add(new Route('GET', '/chapters/[id]', function($id) {
 
 /*Login*/
 $router->add(new Route('GET', '/login', function() {
-    // $controller = new Backend();
     $controller = new App\Controller\Backend();
     $controller->loginPage();
 }));
 
-/*Loinn-chekc*/
+/*Login-check*/
 $router->add(new Route('POST', '/login-check', function() {
-    // $controller = new Backend();
     $controller = new App\Controller\Backend();
     $controller->loginCheck();
 }));
 
-/*Admin-pae*/
+/*Admin-page*/
 $router->add(new Route('GET', '/admin', function() {
-    // $controller = new Backend();
     $controller = new App\Controller\Backend();
     $controller->adminPage();
 }));
 
-// $routes[] = new Route('GET', '/login', 'Backend', 'loginPage');
+/*Create-chapter*/
+$router->add(new Route('POST', '/chapters', function() {
+    $controller = new App\Controller\Backend();
+    $controller->createChapterPage();
+}));
+
+/*Update-chapter*/
+
+/*Delete-chapter*/
 
 ?>

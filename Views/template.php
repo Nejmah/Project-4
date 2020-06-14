@@ -34,7 +34,19 @@
 								<a class="nav-link" href="/Project-4/chapters">CHAPITRES</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="/Project-4/login">ADMINISTRATION</a>
+								<?php
+								if (isset($_SESSION['admin-connected']) 
+								&& $_SESSION['admin-connected'] == true) {
+								?>
+									<a class="nav-link" href="/Project-4/admin">ADMINISTRATION</a>
+								<?php
+								}
+								else {
+								?>
+									<a class="nav-link" href="/Project-4/login">CONNEXION</a>
+								<?php
+								}
+								?>
 							</li>
 						</ul>
 					</div>

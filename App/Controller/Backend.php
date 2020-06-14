@@ -29,33 +29,44 @@ class Backend extends Controller {
                     'metaTitle' => "Administration",
                     'bodyClasses' => "admin-page"
                 ]);
-        
-                // header('Location: /Project-4/admin');
-                // require('view/backend/adminIndexView.php');
             }
             else {
-                
-                // Si le mot de passe est incorrect, on redirige sur la page de connexion avec un message d'erreur
+                // Si le mot de passe est incorrect,
+                // on redirige sur la page de connexion avec un message d'erreur
                 $this->render('login', [
                     'metaTitle' => "Connexion",
                     'error' => "invalid-password"
                 ]);
             }
         }
-        // Quand on est déjà connecté
-        elseif (isset($_SESSION['admin-connected'])) {
-            require('view/backend/adminIndexView.php');
-        } 
-        else {
-            // S'il n'y a pas de mot de passe, on redirige sur la page de connexion
-            header('Location: index.php?action=login');
-        }
     }
 
     public function adminPage() {
-        $this->render('admin', [
-            'metaTitle' => "Administration"
-        ]);
+        if (isset($_SESSION['admin-connected'])) {
+            $this->render('admin', [
+                'metaTitle' => "Administration"
+            ]);
+        }
+        else {
+            header('Location: /Project-4/login');
+        }
     }
+
+    public function createChapterPage() {
+
+    }
+
+    public function readChapterPage() {
+
+    }
+
+    public function updateChapterPage() {
+        
+    }
+
+    public function deleteChapterPage() {
+        
+    }
+
 }
 ?>
