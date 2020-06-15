@@ -8,6 +8,23 @@ class ChapterManager extends Manager {
         // Préparation de la requête d'insertion
         // Assignation des valeurs pour l'id, la date de création, le titre et le contenu
         // Exécution de la requête
+
+        if (!empty($POST_['title']) && !empty($POST_['content'])) {
+            // On transforme la date dans le bon format
+            // (DateTime et DateTimeZone sont des classes PHP
+            // qui ne sont pas dans mon namespace d'où \ devant)
+            $now = new \DateTime("now", new \DateTimeZone('Europe/Paris'));
+            $date = $now->format('Y-m-d H:i:s'); // exemple : "2019-12-31 23:30:59"
+
+            $req = $this->db->prepare('INSERT INTO chapters(created_at, title, content) VALUES (:creation_date, :title, :content)');
+            $req->execute(array(
+                'creation_date' => $date,
+                'title' => $title, 
+                'content' => $content
+            ));
+            return "ok";
+        }
+        return "error";
     }
 
     public function delete(Chapter $chapter) {

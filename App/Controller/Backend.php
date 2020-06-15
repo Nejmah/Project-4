@@ -52,8 +52,30 @@ class Backend extends Controller {
         }
     }
 
-    public function createChapterPage() {
+    public function createPage() {
+        $this->render('create', [
+            'metaTitle' => "Administration"
+        ]);
+    }
 
+    public function saveChapter() {
+        if (!empty($POST_['title']) && !empty($POST_['content'])) {
+
+            $manager = new ChapterManager();
+
+            $chapter = new Chapter([
+                'title' => $POST_['title'],
+                'content' => $POST_['content']
+            ]);
+            $manager->add($chapter);
+
+
+            $manager->add($POST_['title'], $POST_['content']);
+
+        }
+        $this->render('saved', [
+            'metaTitle' => "Administration"
+        ]);
     }
 
     public function readChapterPage() {
@@ -68,5 +90,10 @@ class Backend extends Controller {
         
     }
 
+    function disconnect()
+    {
+        unset($_SESSION['admin-connected']);
+        header('Location: /Project-4');
+    }
 }
 ?>

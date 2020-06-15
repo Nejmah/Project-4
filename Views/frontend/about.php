@@ -12,7 +12,7 @@
     </div>
 
     <p class="chapters-button text-center">
-        <a class="btn btn-secondary btn-lg" href="<?= $loginPageUrl ?>">Chapitres</a>
+        <a class="btn btn-secondary btn-lg" href="/Project-4/chapters">Chapitres</a>
     </p>
 
 </div>

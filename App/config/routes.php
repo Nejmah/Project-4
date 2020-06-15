@@ -48,16 +48,29 @@ $router->add(new Route('POST', '/login-check', function() {
     $controller->loginCheck();
 }));
 
+/*Logout*/
+$router->add(new Route('GET', '/logout', function() {
+    $controller = new App\Controller\Backend();
+    $controller->disconnect();
+}));
+
+
 /*Admin-page*/
 $router->add(new Route('GET', '/admin', function() {
     $controller = new App\Controller\Backend();
     $controller->adminPage();
 }));
 
-/*Create-chapter*/
+/*Create-chapter-page*/
+$router->add(new Route('GET', '/create', function() {
+    $controller = new App\Controller\Backend();
+    $controller->createPage();
+}));
+
+/*Add-chapter*/
 $router->add(new Route('POST', '/chapters', function() {
     $controller = new App\Controller\Backend();
-    $controller->createChapterPage();
+    $controller->add();
 }));
 
 /*Update-chapter*/
