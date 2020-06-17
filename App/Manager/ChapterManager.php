@@ -8,23 +8,7 @@ class ChapterManager extends Manager {
         // Préparation de la requête d'insertion
         // Assignation des valeurs pour l'id, la date de création, le titre et le contenu
         // Exécution de la requête
-
-        if (!empty($POST_['title']) && !empty($POST_['content'])) {
-            // On transforme la date dans le bon format
-            // (DateTime et DateTimeZone sont des classes PHP
-            // qui ne sont pas dans mon namespace d'où \ devant)
-            $now = new \DateTime("now", new \DateTimeZone('Europe/Paris'));
-            $date = $now->format('Y-m-d H:i:s'); // exemple : "2019-12-31 23:30:59"
-
-            $req = $this->db->prepare('INSERT INTO chapters(created_at, title, content) VALUES (:creation_date, :title, :content)');
-            $req->execute(array(
-                'creation_date' => $date,
-                'title' => $title, 
-                'content' => $content
-            ));
-            return "ok";
-        }
-        return "error";
+        // Retourne une instance du chapitre créé
     }
 
     public function delete(Chapter $chapter) {
@@ -32,7 +16,7 @@ class ChapterManager extends Manager {
     }
 
     // Retourne un chapitre
-    public function getChapter($id) {
+    public function find($id) {
         $req = $this->db->prepare('SELECT id, title, content, DATE_FORMAT (created_at, \'%d/%m/%y\') AS creation_date_fr FROM chapters WHERE id = ?');
         $req->execute(array($id));
         $chapter = $req->fetch();
@@ -42,7 +26,7 @@ class ChapterManager extends Manager {
     }
 
     // Retourne la liste de tous les chapitres
-    public function getList() {
+    public function all() {
         $chapters = [];
 
         $req = $this->db->query('SELECT id, title, content, DATE_FORMAT (created_at, \'%d/%m/%y\') AS createdAt FROM chapters ORDER BY created_at DESC LIMIT 0, 3');

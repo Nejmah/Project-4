@@ -25,10 +25,6 @@ footer {
     transform: translateX(-50%);
 }
 
-/* .admin-page footer {
-    display: none;
-} */
-
 /*----------------------------------------------
                     FRONTEND
 ----------------------------------------------*/
@@ -64,6 +60,8 @@ footer {
     font-size: 5em;
     font-weight: bold;
     color: rgb(21, 62, 104);
+    text-shadow: 1px 1px 2px white;
+
     margin-top: 125px;
 }
 
@@ -175,10 +173,6 @@ footer {
 .success-message,
 .error-message {
     margin-top: 190px;
-    /* margin-top: 50vh; */
-    /* poussé de la moitié de hauteur de viewport */
-    /* transform: translateY(-50%); */
-    /* tiré de la moitié de sa propre hauteur */
 }
 
 .login-form input,
@@ -203,8 +197,14 @@ footer {
     font-weight: 700;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.9);
-    margin: 20px 0 10px 0;
+    margin-top: 60px;
     padding: 30px;
+}
+
+.admin-page .return-button {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 30px 0;
 }
 
 .admin-page .admin-nav img {
@@ -219,7 +219,6 @@ footer {
 .admin-nav {
     display: flex;
     justify-content: space-around;
-    /* margin-top: 30px; */
 }
 
 .admin-nav .nav {
@@ -227,7 +226,7 @@ footer {
 }
 
 .admin-page .nav-pills {
-    width: 35%;
+    width: 50%;
 }
 
 .admin-nav li {
@@ -235,21 +234,23 @@ footer {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 5px;
-    margin: 30px 0 30px 0;
+}
+
+.admin-nav li:not(:last-child) {
+    margin-bottom: 40px;
 }
 
 .admin-nav li a {
     color: rgb(60, 106, 141);
-    /* color: white; */
 }
 
 .admin-nav li a:hover {
     font-weight: bold;
-    /* color: rgb(60, 106, 141); */
-    /* border: rgb(223, 224, 226) 1px solid; */
-    /* border-radius: 5px; */
-    /* background-color: rgb(223, 224, 226); */
-    /* background-color: rgba(255, 255, 255, 0.9); */
+}
+
+.admin-page .logout-button {
+    display: flex;
+    justify-content: flex-end;
 }
 
 /* Create-chapter */

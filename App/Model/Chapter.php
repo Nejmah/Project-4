@@ -3,11 +3,12 @@ namespace App\Model;
 
 class Chapter {
 
-    private $_id;
-    private $_createdAt;
-    private $_updatedAt;
-    private $_title;
-    private $_content;
+    private $id;
+    private $createdAt;
+    private $updatedAt;
+    private $title;
+    private $content;
+    private $errors = [];
     
     // Méthode d'hydratation
     public function hydrate(array $data) {
@@ -23,27 +24,31 @@ class Chapter {
         }
     }
 
+    public function isValid() {
+        return count($this->errors) == 0;
+    } 
+
     // GETTERS
     // Renvoie la valeur d'un attribut
 
     public function getId() {
-        return $this->_id;
+        return $this->id;
     }
 
     public function getCreatedAt() {
-        return $this->_createdAt;
+        return $this->createdAt;
     }
 
     public function getUpdatedAt() {
-        return $this->_updatedAt;
+        return $this->updatedAt;
     }
 
     public function getTitle() {
-        return $this->_title;
+        return $this->title;
     }
 
     public function getContent() {
-        return $this->_content;
+        return $this->content;
     }
 
     // SETTERS
@@ -56,23 +61,24 @@ class Chapter {
         // On vérifie si ce nombre est bien strictement positif
         if ($id > 0)
         {
-            $this->_id = $id;
+            $this->id = $id;
         }
     }
 
     public function setTitle($title) {
         // On vérifie s'il s'agit bien d'une chaîne de caractères
-        if (is_string($title))
+        if (!is_string($title))
         {
-            $this->_title = $title;
+            $this->errors[] = ['title' => "Le titre n'est pas une chaîne de caractères."];
         }
+        $this->title = $title;
     }
 
     public function setContent($content) {
         // On vérifie s'il s'agit bien d'une chaîne de caractères
         if (is_string($content))
         {
-            $this->_content = $content;
+            $this->content = $content;
         }
     }
 }

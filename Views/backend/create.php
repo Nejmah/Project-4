@@ -1,4 +1,3 @@
-<?php $bodyClasses = "admin-page"; ?>
 
 <h1>Ajouter un nouveau chapitre</h1>
 

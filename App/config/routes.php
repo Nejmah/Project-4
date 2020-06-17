@@ -1,65 +1,78 @@
 <?php
 
-use App\Controller\Frontend;
-use App\Controller\Backend;
 use App\lib\Route;
+use App\Controller\Frontend\FrontController;
+use App\Controller\Backend\BackController;
+use App\Controller\Frontend\ChapterController;
 
 /*----------------------------------------------
-                    FRONTEND
+                    FRONT
 ----------------------------------------------*/
 
 /*Home*/
 $router->add(new Route('GET', '/', function() {
-    $controller = new Frontend();
-    $controller->homePage();
+    $controller = new FrontController();
+    $controller->home();
 }));
 
 /*About*/
 $router->add(new Route('GET', '/about', function () {
-    $controller = new App\Controller\Frontend();
-    $controller->aboutPage();
+    $controller = new FrontController();
+    $controller->about();
 }));
-
-/*Chapters*/
-$router->add(new Route('GET', '/chapters', function() {
-    $controller = new App\Controller\Frontend();
-    $controller->chaptersPage();
-}));
-
-/*Chapter*/
-$router->add(new Route('GET', '/chapters/[id]', function($id) {
-    $controller = new App\Controller\Frontend();
-    $controller->chapterPage($id);
-}));
-
-/*----------------------------------------------
-                    BACKEND
-----------------------------------------------*/
 
 /*Login*/
 $router->add(new Route('GET', '/login', function() {
-    $controller = new App\Controller\Backend();
-    $controller->loginPage();
+    $controller = new FrontController();
+    $controller->login();
 }));
+
+/*----------------------------------------------
+                    BACK
+----------------------------------------------*/
 
 /*Login-check*/
 $router->add(new Route('POST', '/login-check', function() {
-    $controller = new App\Controller\Backend();
+    $controller = new BackController();
     $controller->loginCheck();
+}));
+
+/*Admin-page*/
+$router->add(new Route('GET', '/admin', function() {
+    $controller = new BackController();
+    $controller->admin();
 }));
 
 /*Logout*/
 $router->add(new Route('GET', '/logout', function() {
-    $controller = new App\Controller\Backend();
+    $controller = new BackController();
     $controller->disconnect();
 }));
 
+/*----------------------------------------------
+                    CHAPTERS
+----------------------------------------------*/
 
-/*Admin-page*/
-$router->add(new Route('GET', '/admin', function() {
-    $controller = new App\Controller\Backend();
-    $controller->adminPage();
+
+/*List of chapters*/
+$router->add(new Route('GET', '/chapters', function() {
+    $controller = new ChapterController();
+    $controller->chapters();
 }));
+
+/*Chapter by id*/
+$router->add(new Route('GET', '/chapters/[id]', function($id) {
+    $controller = new ChapterController();
+    $controller->chapter($id);
+}));
+
+
+
+
+
+
+
+
 
 /*Create-chapter-page*/
 $router->add(new Route('GET', '/create', function() {
@@ -76,5 +89,10 @@ $router->add(new Route('POST', '/chapters', function() {
 /*Update-chapter*/
 
 /*Delete-chapter*/
+
+/*----------------------------------------------
+                    COMMENTS
+----------------------------------------------*/
+
 
 ?>
