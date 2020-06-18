@@ -1,4 +1,3 @@
-
 <h1>Ajouter un nouveau chapitre</h1>
 
 <form class="create-chapter-form" method="post" action="/Project-4/chapters">

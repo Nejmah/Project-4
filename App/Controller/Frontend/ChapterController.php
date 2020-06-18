@@ -15,8 +15,6 @@ class ChapterController extends Controller {
     }
 
     public function chapters() {     
-        // $manager = new ChapterManager();
-
         // $chapters = $manager->all();
 
         $this->response('chapters', [
@@ -26,12 +24,9 @@ class ChapterController extends Controller {
     }
 
     public function chapter($id) {
-        // $manager = new ChapterManager();
-
         // $chapter = $manager->find($id);
 
         $this->response('chapter', [
-            // 'metaTitle' => "Chapitres",
             'chapter' => $this->manager->find($id)
         ]);
     }

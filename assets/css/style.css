@@ -264,15 +264,16 @@ footer {
 }
 
 .button-form-post {
-    background-color: rgb(60, 106, 141);
-    border-color: rgb(60, 106, 141);
+    background-color: rgb(21, 62, 104);
+    border-color: rgb(21, 62, 104);
     margin-top: 15px;
     margin-bottom: 50px;
 }
 
 .button-form-post:hover {
-    background-color: rgb(21, 62, 104);
-    border-color: rgb(21, 62, 104);
+    color: rgb(21, 62, 104);
+    background-color: white;
+    border-color: white;
 }
 
 /* Saved-chapter */

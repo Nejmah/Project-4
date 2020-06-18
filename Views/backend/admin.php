@@ -1,7 +1,7 @@
 <h1>Bienvenue dans votre espace</h1>
 
 <div class="return-button">
-    <a href="/Project-4" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+    <a href="/Project-4" data-toggle="tooltip" title="Retour au site">
         <img class="moutain-img" src="/Project-4/assets/img/mountain.png" alt="mountain">
     </a>
 </div>
@@ -21,7 +21,7 @@
 </div>
 
 <div class="logout-button">
-    <a class="nav-link" href="/Project-4/logout">
+    <a href="/Project-4/logout" data-toggle="tooltip" title="Déconnexion">
         <img src="/Project-4/assets/img/logout.png" alt="logout">
     </a>
 </div>

@@ -31,7 +31,7 @@
   		<script>
 		    tinymce.init({
 			    selector: 'textarea',
-				height: 450,
+				height: 400,
   				menubar: false,
 			});
 		</script>

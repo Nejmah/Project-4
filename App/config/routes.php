@@ -3,7 +3,8 @@
 use App\lib\Route;
 use App\Controller\Frontend\FrontController;
 use App\Controller\Backend\BackController;
-use App\Controller\Frontend\ChapterController;
+
+// use App\Controller\Frontend\ChapterController as FrontChapterManager;
 
 /*----------------------------------------------
                     FRONT
@@ -53,31 +54,22 @@ $router->add(new Route('GET', '/logout', function() {
                     CHAPTERS
 ----------------------------------------------*/
 
-
 /*List of chapters*/
 $router->add(new Route('GET', '/chapters', function() {
-    $controller = new ChapterController();
+    $controller = new App\Controller\Frontend\ChapterController();
     $controller->chapters();
 }));
 
 /*Chapter by id*/
 $router->add(new Route('GET', '/chapters/[id]', function($id) {
-    $controller = new ChapterController();
+    $controller = new App\Controller\Frontend\ChapterController();
     $controller->chapter($id);
 }));
 
-
-
-
-
-
-
-
-
 /*Create-chapter-page*/
 $router->add(new Route('GET', '/create', function() {
-    $controller = new App\Controller\Backend();
-    $controller->createPage();
+    $controller = new App\Controller\Backend\ChapterController();
+    $controller->create();
 }));
 
 /*Add-chapter*/

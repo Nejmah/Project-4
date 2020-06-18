@@ -1,22 +1,20 @@
 <?php
-namespace App\Controller;
+namespace App\Controller\Backend;
 
-use App\Model\Chapter;
+use App\Controller\Controller;
 use App\Manager\ChapterManager;
 
-class Backend extends Controller {
+class ChapterController extends Controller {
 
     public function __construct()
     {
         parent::__construct();
-        $this->viewsPath .= "backend/";
+        $this->renderer->setViewsPath("views/backend/");
+        $this->manager = new ChapterManager();
     }
 
-
-    public function createPage() {
-        $this->render('create', [
-            'metaTitle' => "Administration"
-        ]);
+    public function create() {
+        $this->response('create');
     }
 
     public function saveChapter() {
