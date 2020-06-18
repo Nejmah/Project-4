@@ -6,8 +6,6 @@ use App\Manager\ChapterManager;
 
 class ChapterController extends Controller {
 
-    protected $manager;
-
     public function __construct() {
         parent::__construct();
         $this->renderer->setViewsPath("views/frontend/");
@@ -18,7 +16,6 @@ class ChapterController extends Controller {
         // $chapters = $manager->all();
 
         $this->response('chapters', [
-            // 'metaTitle' => "Chapitres",
             'chapters' => $this->manager->all()
         ]);
     }

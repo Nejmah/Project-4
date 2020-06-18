@@ -10,11 +10,14 @@ class Chapter {
     private $content;
     private $errors = [];
     
-    // Méthode d'hydratation
+    public function __construct(array $data) {
+        $this->hydrate($data);
+    }
+
     public function hydrate(array $data) {
         foreach ($data as $key => $value) {
             // On récupère le nom du setter correspondant à l'attribut
-            $method = 'set' .ucfirst($key); // Met le premier caractère en majuscule
+            $method = 'set' . ucfirst($key); // Met le premier caractère en majuscule
 
             // Si le setter correspondant existe
             if (method_exists($this, $method)) { // Vérifie si la méthode existe pour l'objet $this, cad Chapter
@@ -59,16 +62,14 @@ class Chapter {
         // Si c'en était déjà un, rien ne change ; sinon, la conversion donnera 0
         $id = (int) $id;
         // On vérifie si ce nombre est bien strictement positif
-        if ($id > 0)
-        {
+        if ($id > 0) {
             $this->id = $id;
         }
     }
 
     public function setTitle($title) {
         // On vérifie s'il s'agit bien d'une chaîne de caractères
-        if (!is_string($title))
-        {
+        if (!is_string($title)) {
             $this->errors[] = ['title' => "Le titre n'est pas une chaîne de caractères."];
         }
         $this->title = $title;
@@ -76,10 +77,13 @@ class Chapter {
 
     public function setContent($content) {
         // On vérifie s'il s'agit bien d'une chaîne de caractères
-        if (is_string($content))
-        {
+        if (is_string($content)) {
             $this->content = $content;
         }
+    }
+
+    public function setCreatedAt($createdAt) {
+        $this->createdAt = $createdAt;
     }
 }
 ?>

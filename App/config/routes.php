@@ -28,15 +28,15 @@ $router->add(new Route('GET', '/login', function() {
     $controller->login();
 }));
 
+/*Connect*/
+$router->add(new Route('POST', '/connexion', function() {
+    $controller = new FrontController();
+    $controller->connect();
+}));
+
 /*----------------------------------------------
                     BACK
 ----------------------------------------------*/
-
-/*Login-check*/
-$router->add(new Route('POST', '/login-check', function() {
-    $controller = new BackController();
-    $controller->loginCheck();
-}));
 
 /*Admin-page*/
 $router->add(new Route('GET', '/admin', function() {
@@ -74,8 +74,8 @@ $router->add(new Route('GET', '/create', function() {
 
 /*Add-chapter*/
 $router->add(new Route('POST', '/chapters', function() {
-    $controller = new App\Controller\Backend();
-    $controller->add();
+    $controller = new App\Controller\Backend\ChapterController();
+    $controller->save();
 }));
 
 /*Update-chapter*/

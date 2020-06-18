@@ -2,27 +2,38 @@
 namespace App\Manager;
 
 use App\lib\DataBase;
+use App\Model\Chapter;
 
 class ChapterManager extends Manager {
-    public function add(Chapter $chapter) {
-        // Préparation de la requête d'insertion
-        // Assignation des valeurs pour l'id, la date de création, le titre et le contenu
-        // Exécution de la requête
-        // Retourne une instance du chapitre créé
-    }
 
-    public function delete(Chapter $chapter) {
-        // Exécute une requête de type DELETE
+    // Ajoute un chapitre à la BDD
+    public function add(Chapter $chapter) {
+        // On transforme la date dans le bon format
+        // (DateTime et DateTimeZone sont des classes PHP
+        // qui ne sont pas dans mon namespace d'où \ devant)
+        $now = new \DateTime("now", new \DateTimeZone('Europe/Paris'));
+        $date = $now->format('Y-m-d H:i:s'); // exemple : "2019-12-31 23:30:59"
+
+        $req = $this->db->prepare('INSERT INTO chapters (created_at, title, content) VALUES (:creation_date, :title, :content)');
+        $req->execute(array(
+            'creation_date' => $date,
+            'title' => $chapter->getTitle(),
+            'content' => $chapter->getContent()
+        ));
+        // Retourne une instance du chapitre créé
+        $id = $this->db->lastInsertId();
+        return $this->find($id);
     }
 
     // Retourne un chapitre
     public function find($id) {
-        $req = $this->db->prepare('SELECT id, title, content, DATE_FORMAT (created_at, \'%d/%m/%y\') AS creation_date_fr FROM chapters WHERE id = ?');
+        $req = $this->db->prepare('SELECT id, title, content, DATE_FORMAT (created_at, \'%d/%m/%y\') AS createdAt FROM chapters WHERE id = ?');
         $req->execute(array($id));
-        $chapter = $req->fetch();
+        $result = $req->fetch(\PDO::FETCH_ASSOC);
+        
+        $chapter = new Chapter($result);
 
         return $chapter;
-
     }
 
     // Retourne la liste de tous les chapitres
@@ -42,6 +53,10 @@ class ChapterManager extends Manager {
         // Prépare une requête de type UPDATE
         // Assignation des valeur à la requête
         // Exécution de la requête
+    }
+
+    public function delete(Chapter $chapter) {
+        // Exécute une requête de type DELETE
     }
 }
 ?>

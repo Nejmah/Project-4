@@ -6,6 +6,7 @@ use App\lib\Renderer;
 abstract class Controller {
 
     protected $renderer;
+    protected $manager;
 
     public function __construct() {
         $this->renderer = new Renderer();

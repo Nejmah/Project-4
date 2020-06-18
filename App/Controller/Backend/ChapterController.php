@@ -3,6 +3,7 @@ namespace App\Controller\Backend;
 
 use App\Controller\Controller;
 use App\Manager\ChapterManager;
+use App\Model\Chapter;
 
 class ChapterController extends Controller {
 
@@ -17,40 +18,35 @@ class ChapterController extends Controller {
         $this->response('create');
     }
 
-    public function saveChapter() {
-        if (!empty($POST_['title']) && !empty($POST_['content'])) {
-
-            $manager = new ChapterManager();
+    public function save() {
+        if (!empty($_POST['title']) && !empty($_POST['content'])) {
 
             $chapter = new Chapter([
-                'title' => $POST_['title'],
-                'content' => $POST_['content']
+                // Tableau $data
+                'title' => $_POST['title'],
+                'content' => $_POST['content']
             ]);
-             
+
             if (!$chapter->isValid()) {
-                die('Donnée invalide'); // Faire une rédirection sur le formulaire sur lequel il était
-                return; // Empêche que le reste de la fonction s'exécute ; la fonction s'arrête 
+                // TO DO
+                // Redirection sur le formulaire sur lequel il était
+                die('Donnée invalide');
+                return;
             }
-            $chapter = $manager->add($chapter);
 
-
-            // $manager->add($POST_['title'], $POST_['content']);
-
+            $newChapter = $this->manager->add($chapter);
+            header('Location: /Project-4/chapters/' . $newChapter->getId());
         }
-        $this->render('saved', [
-            'metaTitle' => "Administration"
-        ]);
+        // Retourner sur le formulaire ?
+        die('Veuillez remplir tous les champs');
+        return;
     }
 
-    public function readChapterPage() {
-
-    }
-
-    public function updateChapterPage() {
+    public function update() {
         
     }
 
-    public function deleteChapterPage() {
+    public function delete() {
         
     }
 }

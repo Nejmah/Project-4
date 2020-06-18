@@ -8,34 +8,25 @@ class BackController extends Controller {
     public function __construct() {
         parent::__construct();
         $this->renderer->setViewsPath("views/backend/");
+
+        // Faire la vérifiction de la connexion
+        $this->loginCheck();
     }
 
-    public function loginCheck() {
-        // Si le mot de passe est correct,
-        if (isset($_POST['password'])) {
-            if ($_POST['password'] == "Alaska"){
-                // On ouvre une session
-                $_SESSION['admin-connected'] = true;
-                // et on affiche la page pour l'administrateur
+    private function loginCheck() {
+        // S'il y a une session,
+        if ($_SESSION['admin-connected'] == true) {
+                // on affiche la page pour l'administrateur
                 $this->response('admin');
             }
             else {
-                // Si le mot de passe est incorrect,
-                // on redirige sur la page de connexion avec un message d'erreur
-                $this->response('login', [
-                    'error' => "invalid-password"
-                ]);
+                // Sinon, on redirige sur la page de connexion
+                header('Location: /Project-4/login');
             }
-        }
     }
 
     public function admin() {
-        if (isset($_SESSION['admin-connected'])) {
             $this->response('admin');
-        }
-        else {
-            header('Location: /Project-4/login');
-        }
     }
 
     public function disconnect()

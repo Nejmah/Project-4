@@ -1,4 +1,4 @@
-<form class="login-form" method="post" action="/Project-4/login-check">
+<form class="login-form" method="post" action="/Project-4/connexion">
     <div class="form-row justify-content-center">
         <div class="col-md-3">
             <?php
