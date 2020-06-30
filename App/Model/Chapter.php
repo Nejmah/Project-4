@@ -28,7 +28,14 @@ class Chapter {
     }
 
     public function isValid() {
-        return count($this->errors) == 0;
+        $hasErrors = count($this->errors) > 0;
+        if ($hasErrors) {
+            $_SESSION['errors'] = $this->errors;
+            $_SESSION['inputs'] = $_POST;
+            return false;
+        }
+        $_SESSION['errors'] = [];
+        return true;
     } 
 
     // GETTERS
@@ -68,14 +75,22 @@ class Chapter {
     }
 
     public function setTitle($title) {
-        // On vérifie s'il s'agit bien d'une chaîne de caractères
-        if (!is_string($title)) {
-            $this->errors[] = ['title' => "Le titre n'est pas une chaîne de caractères."];
+        // On vérifie s'il s'agit bien d'une chaîne de caractères (inutile)
+        // if (!is_string($title)) {
+        //     $this->errors[] = ['title' => "Le titre n'est pas une chaîne de caractères."];
+        // }
+        if (strlen($title) < 3) {
+            $this->errors['title'] = "Le titre n'est pas assez long.";
         }
         $this->title = $title;
     }
 
     public function setContent($content) {
+        // On vérifie que le champ est rempli
+        // if (!empty($_POST['title']) && !empty($_POST['content']))
+        if (empty($_POST['content'])) {
+            $this->errors['content'] = "Veuillez remplir tous les champs.";
+        }
         // On vérifie s'il s'agit bien d'une chaîne de caractères
         if (is_string($content)) {
             $this->content = $content;

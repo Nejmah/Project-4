@@ -15,39 +15,50 @@ class ChapterController extends Controller {
     }
 
     public function create() {
-        $this->response('create');
+        $this->response('create', [
+            'titleValue' => $this->hasInputs('title'),
+            'contentValue' => $this->hasInputs('content'),
+            'errors' => $_SESSION['errors']
+        ]);
     }
 
-    public function save() {
-        if (!empty($_POST['title']) && !empty($_POST['content'])) {
+    public function store() {
+        $chapter = new Chapter([
+            'title' => $_POST['title'],
+            'content' => $_POST['content']
+        ]);
 
-            $chapter = new Chapter([
-                // Tableau $data
-                'title' => $_POST['title'],
-                'content' => $_POST['content']
-            ]);
-
-            if (!$chapter->isValid()) {
-                // TO DO
-                // Redirection sur le formulaire sur lequel il était
-                die('Donnée invalide');
-                return;
-            }
-
-            $newChapter = $this->manager->add($chapter);
-            header('Location: /Project-4/chapters/' . $newChapter->getId());
+        if (!$chapter->isValid()) {
+            // On redirige sur le formulaire (pré-rempli)
+            return $this->create();
         }
-        // Retourner sur le formulaire ?
-        die('Veuillez remplir tous les champs');
-        return;
+
+        $chapter = $this->manager->add($chapter);
+        header('Location: /Project-4/chapters/' . $chapter->getId());
     }
 
     public function update() {
         
     }
 
-    public function delete() {
+    public function edit() {
+        // Afficher le formulaire pour le modifier
+    }
+    
+    public function destroy() {
         
+    }
+
+    /*
+     $key : title ou content
+     */
+    private function hasInputs($key) {
+        if ($_SESSION['inputs']) {
+            if ($_SESSION['inputs'][$key]) {
+                return $_SESSION['inputs'][$key];
+            }
+        }
+        return false;
     }
 }
 ?>

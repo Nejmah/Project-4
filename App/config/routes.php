@@ -75,7 +75,7 @@ $router->add(new Route('GET', '/create', function() {
 /*Add-chapter*/
 $router->add(new Route('POST', '/chapters', function() {
     $controller = new App\Controller\Backend\ChapterController();
-    $controller->save();
+    $controller->store();
 }));
 
 /*Update-chapter*/

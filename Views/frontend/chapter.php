@@ -12,7 +12,7 @@
     </div>
 
     <div class="content-chapter">
-        <p><?= htmlspecialchars($chapter->getContent()); ?></p>
+        <p><?= $chapter->getContent(); ?></p>
     </div>
 
 </div>

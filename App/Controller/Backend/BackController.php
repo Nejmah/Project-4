@@ -9,20 +9,16 @@ class BackController extends Controller {
         parent::__construct();
         $this->renderer->setViewsPath("views/backend/");
 
-        // Faire la vérifiction de la connexion
-        $this->loginCheck();
+        // On vérifie la connexion
+        $this->isConnected();
     }
 
-    private function loginCheck() {
+    private function isConnected() {
         // S'il y a une session,
-        if ($_SESSION['admin-connected'] == true) {
-                // on affiche la page pour l'administrateur
-                $this->response('admin');
-            }
-            else {
-                // Sinon, on redirige sur la page de connexion
-                header('Location: /Project-4/login');
-            }
+        if ($_SESSION['admin-connected'] == false) {
+            // Sinon, on redirige sur la page de connexion
+            header('Location: /Project-4/login');
+        }
     }
 
     public function admin() {

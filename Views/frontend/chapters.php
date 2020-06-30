@@ -18,7 +18,7 @@
                         <?= substr($chapter->getContent(), 3, 250); ?>
                     </div>
                     <div class="col-md-2 read-more-button">
-                        <a class="btn btn-secondary" href="index.php?action=chapter&id=<?= $chapter->getId(); ?>">Lire la suite</a>
+                        <a class="btn btn-secondary" href="/Project-4/chapters/<?= $chapter->getId(); ?>">Lire la suite</a>
                     </div>
                 </div>
             </div>
