@@ -78,9 +78,29 @@ $router->add(new Route('POST', '/chapters', function() {
     $controller->store();
 }));
 
+/*Chapters-table*/
+$router->add(new Route('GET', '/manage', function() {
+    $controller = new App\Controller\Backend\BackController();
+    $controller->table();
+}));
+
+/*Edit-chapter*/
+$router->add(new Route('GET', '/chapters/[id]/edit', function($id) {
+    $controller = new App\Controller\Backend\ChapterController();
+    $controller->edit($id);
+}));
+
 /*Update-chapter*/
+$router->add(new Route('POST', '/chapters/[id]/update', function($id) {
+    $controller = new App\Controller\Backend\ChapterController();
+    $controller->update($id);
+}));
 
 /*Delete-chapter*/
+$router->add(new Route('POST', '/chapters/[id]/delete', function($id) {
+    $controller = new App\Controller\Backend\ChapterController();
+    $controller->delete($id);
+}));
 
 /*----------------------------------------------
                     COMMENTS

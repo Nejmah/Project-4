@@ -12,7 +12,7 @@
             <a class="nav-link" href="/Project-4/create">Ajouter un chapitre</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">Gérer les chapitres</a>
+            <a class="nav-link" href="/Project-4/manage">Gérer les chapitres</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="">Modérer les commentaires</a>

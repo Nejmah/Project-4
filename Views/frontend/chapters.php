@@ -14,8 +14,8 @@
             <div class="content-chapter">
                 <div class="row">
                     <div class="col-md-10">
-                        <!-- Limite le texte à 250 caractères -->
-                        <?= substr($chapter->getContent(), 3, 250); ?>
+                        <!-- Limite le texte à 300 caractères -->
+                        <?= substr($chapter->getContent(), 3, 300); ?>
                     </div>
                     <div class="col-md-2 read-more-button">
                         <a class="btn btn-secondary" href="/Project-4/chapters/<?= $chapter->getId(); ?>">Lire la suite</a>

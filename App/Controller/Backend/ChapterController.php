@@ -34,19 +34,38 @@ class ChapterController extends Controller {
         }
 
         $chapter = $this->manager->add($chapter);
+        // On vide errors & inputs
+        $_SESSION['errors'] = [];
+        $_SESSION['inputs'] = [];
+        
         header('Location: /Project-4/chapters/' . $chapter->getId());
     }
 
-    public function update() {
-        
-    }
-
-    public function edit() {
+    public function edit($id) {
         // Afficher le formulaire pour le modifier
+        $chapter = $this->manager->find($id);
+        $this->response('edit', [
+            'chapter' => $chapter
+        ]);
     }
     
-    public function destroy() {
-        
+    public function update($id) {
+        $chapter = $this->manager->find($id);
+
+        $chapter->setTitle($_POST['title']);
+        $chapter->setContent($_POST['content']);
+
+        $this->manager->update($chapter);
+
+        header('Location: /Project-4/chapters/' . $id);
+    }
+
+    public function delete($id) {
+        $chapter = $this->manager->find($id);
+
+        $this->manager->delete($chapter);
+
+        header('Location: /Project-4/chapters');
     }
 
     /*

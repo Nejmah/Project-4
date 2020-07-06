@@ -255,8 +255,14 @@ footer {
 
 /* Create-chapter */
 
-.create-chapter-form {
+.create-chapter-form,
+.update-chapter-form {
     margin-top: 20px;
+}
+
+.create-chapter-form .title-zone,
+.update-chapter-form .title-zone {
+    padding-left: 14px;
 }
 
 .title-zone {
@@ -280,49 +286,33 @@ footer {
     margin-top: 10px;
 }
 
-/* Saved-chapter */
+/*Chapters-table*/
 
-.saved-chapter-message {
-    font-size: 2em;
-    color: rgb(21, 62, 104);
-    text-align: center;
-    font-style: italic;
-    font-weight: 700;
-    /* margin-top: 50px; */
+.chapters-table-title {
+    margin-bottom: 60px;
 }
-
-/* Page de gestion des billets */
 
 .chapter-title {
     font-size: 20px;
+    color: rgb(60, 106, 141);
 }
 
-.table-posts {
-    background-color: rgba(255, 255, 255, 0.1);
-    margin-bottom: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.chapters-table {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    margin: 0 0 20px 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
-.table-posts:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+.chapters-table:hover {
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    font-weight: bold;
 }
 
-.btn-warning {
-    margin-right: 10px;
-}
-
-/* Message de succès */
-
-.success-message,
-.error-message {
-    font-size: 24px;
-    color: bisque;
-}
-
-.success-message p,
-.error-message p {
-    margin: 0;
+.chapters-table .btn-secondary,
+.modal-footer .btn-secondary {
+    margin-right: 12px;
 }
 
 /* Modal de suppression d'un billet */

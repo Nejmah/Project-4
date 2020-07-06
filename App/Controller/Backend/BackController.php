@@ -2,12 +2,14 @@
 namespace App\Controller\Backend;
 
 use App\Controller\Controller;
+use App\Manager\ChapterManager;
 
 class BackController extends Controller {
 
     public function __construct() {
         parent::__construct();
         $this->renderer->setViewsPath("views/backend/");
+        $this->manager = new ChapterManager();
 
         // On vérifie la connexion
         $this->isConnected();
@@ -23,6 +25,12 @@ class BackController extends Controller {
 
     public function admin() {
             $this->response('admin');
+    }
+
+    public function table() {
+        $this->response('table', [
+            'chapters' => $this->manager->all()
+        ]);
     }
 
     public function disconnect()
