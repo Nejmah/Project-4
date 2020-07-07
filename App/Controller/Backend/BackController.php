@@ -27,12 +27,6 @@ class BackController extends Controller {
             $this->response('admin');
     }
 
-    public function table() {
-        $this->response('table', [
-            'chapters' => $this->manager->all()
-        ]);
-    }
-
     public function disconnect()
     {
         unset($_SESSION['admin-connected']);

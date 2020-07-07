@@ -22,6 +22,12 @@ class ChapterController extends Controller {
         ]);
     }
 
+    public function table() {
+        $this->response('table', [
+            'chapters' => $this->manager->all()
+        ]);
+    }
+
     public function store() {
         $chapter = new Chapter([
             'title' => $_POST['title'],
@@ -57,7 +63,7 @@ class ChapterController extends Controller {
 
         $this->manager->update($chapter);
 
-        header('Location: /Project-4/chapters/' . $id);
+        $this->table();
     }
 
     public function delete($id) {
@@ -65,7 +71,7 @@ class ChapterController extends Controller {
 
         $this->manager->delete($chapter);
 
-        header('Location: /Project-4/chapters');
+        $this->table();
     }
 
     /*

@@ -17,12 +17,9 @@ h1 {
     /* font-size: 3.5em; */
 }
 
-footer {
+footer p {
     color: white;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    text-align: center;
 }
 
 /*----------------------------------------------
@@ -136,18 +133,21 @@ footer {
 }
 
 .comments {
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
-.chapter-title p,
 .add-comment {
+    margin: 30px 0 0 0;
+}
+
+.chapter-title p {
     margin: 0;
 }
 
 .chapter-content {
     background-color: white;
     padding: 20px 40px 20px 40px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .read-more-button {
@@ -170,14 +170,23 @@ footer {
     text-shadow: 1px 1px 2px black;
 }
 
+.comments-list {
+    background-color: white;
+    padding: 20px 40px 20px 40px;
+}
+
+.comment-content {
+    padding-left: 30px;
+}
+
 .comment-form {
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
 }
 
-.comment-title,
-.comment-content {
+.comment-title-input,
+.comment-content-input {
     padding: 10px;
 }
 

@@ -3,24 +3,27 @@ namespace App\Controller\Frontend;
 
 use App\Controller\Controller;
 use App\Manager\ChapterManager;
+use App\Manager\CommentManager;
 
 class ChapterController extends Controller {
 
     public function __construct() {
         parent::__construct();
         $this->renderer->setViewsPath("views/frontend/");
-        $this->manager = new ChapterManager();
+        $this->chapterManager = new ChapterManager();
+        $this->commentManager = new CommentManager();
     }
 
-    public function chapters() {     
+    public function chapters() {   
         $this->response('chapters', [
-            'chapters' => $this->manager->all()
+            'chapters' => $this->chapterManager->all()
         ]);
     }
 
     public function chapter($id) {
         $this->response('chapter', [
-            'chapter' => $this->manager->find($id)
+            'chapter' => $this->chapterManager->find($id),
+            'comments' => $this->commentManager->forChapter($id)
         ]);
     }
 }
