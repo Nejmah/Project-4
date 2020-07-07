@@ -1,12 +1,12 @@
 <?php
 namespace App\Model;
 
-class Chapter {
+class Comment {
 
+    private $chapterId;
     private $id;
     private $createdAt;
-    private $updatedAt;
-    private $title;
+    private $author;
     private $content;
     private $errors = [];
     
@@ -20,7 +20,7 @@ class Chapter {
             $method = 'set' . ucfirst($key); // Met le premier caractère en majuscule
 
             // Si le setter correspondant existe
-            if (method_exists($this, $method)) { // Vérifie si la méthode existe pour l'objet $this, cad Chapter
+            if (method_exists($this, $method)) { // Vérifie si la méthode existe pour l'objet $this, cad Comment
                 // On appelle le setter
                 $this->$method($value); // En passant la valeur en paramètre
             }
@@ -40,6 +40,10 @@ class Chapter {
     // GETTERS
     // Renvoie la valeur d'un attribut
 
+    public function getChapterId() {
+        return $this->chapterId;
+    }
+
     public function getId() {
         return $this->id;
     }
@@ -48,12 +52,8 @@ class Chapter {
         return $this->createdAt;
     }
 
-    public function getUpdatedAt() {
-        return $this->updatedAt;
-    }
-
-    public function getTitle() {
-        return $this->title;
+    public function getAuthor() {
+        return $this->author;
     }
 
     public function getContent() {
@@ -63,30 +63,31 @@ class Chapter {
     // SETTERS
     // Assigne une valeur à un attribut
 
-    public function setId($id) {
+    public function setChapterId($id) {
+        $this->chapterId = $id;
+    }
 
+    public function setId($id) {
         // On convertit l'argument en nombre entier
         // Si c'en était déjà un, rien ne change ; sinon, la conversion donnera 0
         $id = (int) $id;
-
         // On vérifie si ce nombre est bien strictement positif
         if ($id > 0) {
-
             $this->id = $id;
         }
     }
 
-    public function setTitle($title) {
+    public function setAuthor($author) {
 
-        if (empty($title)) {
-            $this->errors['title'] = "Veuillez remplir tous les champs.";
+        if (empty($author)) {
+            $this->errors['author'] = "Veuillez remplir tous les champs.";
         }
 
-        if (strlen($title) < 3) {
-            $this->errors['title'] = "Le titre n'est pas assez long.";
+        if (strlen($author) < 2) {
+            $this->errors['author'] = "Votre pseudo n'est pas assez long.";
         }
 
-        $this->title = $title;
+        $this->author = $author;
     }
 
     public function setContent($content) {
@@ -95,12 +96,12 @@ class Chapter {
             $this->errors['content'] = "Veuillez remplir tous les champs.";
         }
 
-        if (strlen($content) < 10) {
-            $this->errors['content'] = "Le texte n'est pas assez long.";
+        if (strlen($content) < 3) {
+            $this->errors['content'] = "Votre commentaire est trop court !";
         }
 
-        if (strlen($content) > 1000) {
-            $this->errors['content'] = "Le texte est trop long.";
+        if (strlen($content) > 50) {
+            $this->errors['content'] = "Votre commentaire est trop long !";
         }
 
         $this->content = $content;

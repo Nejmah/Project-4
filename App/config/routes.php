@@ -106,5 +106,10 @@ $router->add(new Route('POST', '/chapters/[id]/delete', function($id) {
                     COMMENTS
 ----------------------------------------------*/
 
+/*Add-comment*/
+$router->add(new Route('POST', '/comments', function() {
+    $controller = new App\Controller\Backend\CommentController();
+    $controller->store();
+}));
 
 ?>

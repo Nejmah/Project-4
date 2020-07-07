@@ -13,16 +13,12 @@ class ChapterController extends Controller {
     }
 
     public function chapters() {     
-        // $chapters = $manager->all();
-
         $this->response('chapters', [
             'chapters' => $this->manager->all()
         ]);
     }
 
     public function chapter($id) {
-        // $chapter = $manager->find($id);
-
         $this->response('chapter', [
             'chapter' => $this->manager->find($id)
         ]);

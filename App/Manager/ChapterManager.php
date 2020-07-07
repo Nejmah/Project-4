@@ -1,7 +1,6 @@
 <?php
 namespace App\Manager;
 
-use App\lib\DataBase;
 use App\Model\Chapter;
 
 class ChapterManager extends Manager {

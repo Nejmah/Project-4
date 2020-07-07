@@ -7,11 +7,11 @@
     else {
         foreach ($chapters as $chapter) {
             ?>
-            <div class="title-chapter">
+            <div class="chapter-title">
                 <h3><?= htmlspecialchars($chapter->getTitle()); ?></h3>
                 <p>Publié le <?= $chapter->getCreatedAt(); ?></p>
             </div>
-            <div class="content-chapter">
+            <div class="chapter-content">
                 <div class="row">
                     <div class="col-md-10">
                         <!-- Limite le texte à 300 caractères -->

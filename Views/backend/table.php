@@ -4,7 +4,7 @@
     foreach ($chapters as $chapter) {
     ?>
     <div class="row chapters-table align-items-center">
-        <div class="col-md-9 chapter-title">
+        <div class="col-md-9 chapter-title-table">
             <?= htmlspecialchars($chapter->getTitle()); ?>
         </div>
         <div class="col-md-3 text-right">
