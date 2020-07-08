@@ -15,24 +15,31 @@
         <p><?= $chapter->getContent(); ?></p>
     </div>
 
-    <h3 class="comments">Commentaires</h3>
+    <h3>Commentaires</h3>
 
-    <?php
-    foreach ($comments as $comment) {
-    ?>
     <div class="comments-list">
-        <div class="comment-author">
-            <h3><?= htmlspecialchars($comment->getAuthor()); ?></h3>
-            <p>Publié le <?= $comment->getCreatedAt(); ?></p>
-        </div>
+        <?php
+        foreach ($comments as $comment) {
+        ?>
+        <div class="comment">
+            <div class="comment-author">
+                <h5><?= htmlspecialchars($comment->getAuthor()); ?></h5>
+                <p>Publié le <?= $comment->getCreatedAt(); ?></p>
+            </div>
 
-        <div class="comment-content">
-            <?= $comment->getContent(); ?>
+            <div class="row comment-content">
+                <div class="comment-text col-md-10">
+                    <?= $comment->getContent(); ?>
+                </div>
+                <div class="col-md-2">
+                    <a class="btn btn-secondary" href="">Signaler</a>
+                </div>
+            </div>
         </div>
+        <?php
+        }
+        ?>
     </div>
-    <?php
-    }
-    ?>
 
     <h3 class="add-comment">Ajouter un commentaire</h3>
     
