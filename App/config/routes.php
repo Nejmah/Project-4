@@ -80,7 +80,7 @@ $router->add(new Route('POST', '/chapters', function() {
 
 /*Chapters-table*/
 $router->add(new Route('GET', '/manage', function() {
-    $controller = new App\Controller\Backend\BackController();
+    $controller = new App\Controller\Backend\ChapterController();
     $controller->table();
 }));
 

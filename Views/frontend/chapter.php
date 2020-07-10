@@ -17,6 +17,19 @@
 
     <h3>Commentaires</h3>
 
+    <?php
+    $str = "Un 'apostrophe' en <strong>gras</strong>.";
+    echo ($str);
+    ?>
+    </br>
+    <?php
+    echo htmlentities($str);
+    ?>
+    </br>
+    <?php
+    echo htmlentities($str, ENT_QUOTES); // Marche pas
+    ?>
+    
     <div class="comments-list">
         <?php
         foreach ($comments as $comment) {

@@ -1,7 +1,7 @@
 <?php
 namespace App\lib;
 
-class DataBase {
+class Database {
 
     private static $_instance;
 
@@ -10,12 +10,13 @@ class DataBase {
         $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
         self::$_instance = $db;
+        // var_dump(self::$_instance);
     }
     
     public static function getInstance() {
         if (is_null(self::$_instance)) {
             // On appelle le constructeur pour initialiser $_instance
-            new DataBase();
+            new Database();
         }
         return self::$_instance;
     }

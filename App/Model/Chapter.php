@@ -1,42 +1,16 @@
 <?php
 namespace App\Model;
 
-class Chapter {
+use App\Model\Model;
+
+class Chapter extends Model {
 
     private $id;
     private $createdAt;
     private $updatedAt;
     private $title;
     private $content;
-    private $errors = [];
     
-    public function __construct(array $data) {
-        $this->hydrate($data);
-    }
-
-    public function hydrate(array $data) {
-        foreach ($data as $key => $value) {
-            // On récupère le nom du setter correspondant à l'attribut
-            $method = 'set' . ucfirst($key); // Met le premier caractère en majuscule
-
-            // Si le setter correspondant existe
-            if (method_exists($this, $method)) { // Vérifie si la méthode existe pour l'objet $this, cad Chapter
-                // On appelle le setter
-                $this->$method($value); // En passant la valeur en paramètre
-            }
-        }
-    }
-
-    public function isValid() {
-        $hasErrors = count($this->errors) > 0;
-        if ($hasErrors) {
-            $_SESSION['errors'] = $this->errors;
-            $_SESSION['inputs'] = $_POST;
-            return false;
-        }
-        return true;
-    } 
-
     // GETTERS
     // Renvoie la valeur d'un attribut
 
