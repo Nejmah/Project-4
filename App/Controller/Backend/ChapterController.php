@@ -41,10 +41,8 @@ class ChapterController extends Controller {
 
         $chapter = $this->manager->add($chapter);
         // On vide errors & inputs
-        $_SESSION['errors'] = [];
-        $_SESSION['inputs'] = [];
-        
-        header('Location: /Project-4/chapters/' . $chapter->getId());
+        $this->emptyErrorsAndInputs();
+        $this->table();
     }
 
     public function edit($id) {
@@ -72,18 +70,6 @@ class ChapterController extends Controller {
         $this->manager->delete($chapter);
 
         $this->table();
-    }
-
-    /*
-     $key : title ou content
-     */
-    private function hasInputs($key) {
-        if ($_SESSION['inputs']) {
-            if ($_SESSION['inputs'][$key]) {
-                return $_SESSION['inputs'][$key];
-            }
-        }
-        return false;
     }
 }
 ?>

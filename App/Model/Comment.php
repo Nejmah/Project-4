@@ -5,8 +5,8 @@ use App\Model\Model;
 
 class Comment extends Model {
 
-    private $chapterId;
     private $id;
+    private $chapterId;
     private $createdAt;
     private $author;
     private $content;

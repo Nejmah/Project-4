@@ -23,7 +23,10 @@ class ChapterController extends Controller {
     public function chapter($id) {
         $this->response('chapter', [
             'chapter' => $this->chapterManager->find($id),
-            'comments' => $this->commentManager->forChapter($id)
+            'comments' => $this->commentManager->forChapter($id),
+            'errors' => $_SESSION['errors'],
+            'authorValue' => $this->hasInputs('author'),
+            'contentValue' => $this->hasInputs('content')
         ]);
     }
 }

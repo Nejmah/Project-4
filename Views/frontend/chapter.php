@@ -58,8 +58,26 @@
     
     <form class="comment-form" method="post" action="/Project-4/comments">
         <input type="hidden" name="chapter_id" value="<?= $chapter->getId();?>">
-        <input class="comment-title-input" type="text" name="author" id="author" placeholder="Votre pseudo" required />
-        <textarea class="comment-content-input" name="content" rows="3" cols="100" placeholder="Votre commentaire" required></textarea>
+        <input class="comment-title-input" type="text" name="author" id="author" 
+            placeholder="Votre pseudo" value="<?= $authorValue ?>"required />
+        
+        <?php if (isset($errors['author'])) { ?>
+        <div class="alert alert-danger text-left" role="alert">
+            <?= $errors['author'] ?>
+        </div>
+        <?php } ?>
+        
+        <textarea class="comment-content-input" name="content" rows="3" cols="100" 
+            placeholder="Votre commentaire" required>
+            <?= $contentValue ?> 
+        </textarea>
+
+        <?php if (isset($errors['content'])) { ?>
+        <div class="alert alert-danger text-left" role="alert">
+            <?= $errors['content'] ?>
+        </div>
+        <?php } ?>
+
         <input class="publish-button btn btn-secondary" type="submit" value="Publier">
     </form>
 

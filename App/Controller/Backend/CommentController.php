@@ -21,16 +21,11 @@ class CommentController extends Controller {
             'content' => $_POST['content']
         ]);
 
-        if (!$comment->isValid()) {
-            // On redirige sur le formulaire (pré-rempli)
-            // return $this->create();
+        if ($comment->isValid()) {
+            $this->manager->add($comment);
+            // On vide errors & inputs
+            $this->emptyErrorsAndInputs();    
         }
-
-        $this->manager->add($comment);
-        // On vide errors & inputs
-        // $_SESSION['errors'] = [];
-        // $_SESSION['inputs'] = [];
-        
         header('Location: /Project-4/chapters/' . $_POST['chapter_id']);
     }
 }

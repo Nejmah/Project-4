@@ -15,5 +15,22 @@ abstract class Controller {
     public function response($viewName, $args = []) {
         $this->renderer->render($viewName, $args);
     }
+
+    public function emptyErrorsAndInputs(){
+        $_SESSION['errors'] = [];
+        $_SESSION['inputs'] = [];
+    }
+
+    /*
+     $key : title ou content
+     */
+    public function hasInputs($key) {
+        if ($_SESSION['inputs']) {
+            if ($_SESSION['inputs'][$key]) {
+                return $_SESSION['inputs'][$key];
+            }
+        }
+        return false;
+    }
 }
 ?>
