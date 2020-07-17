@@ -10,6 +10,8 @@ class Comment extends Model {
     private $createdAt;
     private $author;
     private $content;
+    private $isReported;
+    private $isApproved;
     
     // GETTERS
     // Renvoie la valeur d'un attribut
@@ -32,6 +34,14 @@ class Comment extends Model {
 
     public function getContent() {
         return $this->content;
+    }
+
+    public function getIsReported() {
+        return $this->isReported;
+    }
+
+    public function getIsApproved() {
+        return $this->isApproved;
     }
 
     // SETTERS
@@ -83,6 +93,19 @@ class Comment extends Model {
 
     public function setCreatedAt($createdAt) {
         $this->createdAt = $createdAt;
+    }
+
+    public function setIsReported($total) {
+        $this->isReported = $total;
+    }
+
+    // Méthode qui inncrémente le champ isReported
+    public function addNewReport() {
+        $this->isReported = $this->isReported + 1;
+    }
+
+    public function setIsApproved($isApproved) {
+        $this->isApproved = $isApproved;
     }
 }
 ?>

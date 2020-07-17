@@ -45,7 +45,30 @@
                     <?= $comment->getContent(); ?>
                 </div>
                 <div class="col-md-2">
-                    <a class="btn btn-secondary" href="">Signaler</a>
+                    <?php
+                    $url = "/Project-4/comments/" . $comment->getId();
+
+                    if (isset($_SESSION['admin-connected']) 
+                        && $_SESSION['admin-connected'] == true) {
+                        // L'administrateur est connecté
+                        
+                        if ($comment->getIsReported() > 0
+                            && $comment->getIsApproved() != 1) {
+                            // Commentaire déjà signalé mais pas approuvé
+                        ?>
+                            <a class="btn btn-success" href="<?= $url; ?>/approve">Approuver</a>
+                            <a class="btn btn-danger" href="<?= $url; ?>/delete">Supprimer</a>
+                        <?php
+                        }
+                    }
+                    else { // Non connecté : on affiche le bouton Signaler si le commentaire n'est pas approuvé
+                        if ($comment->getIsApproved() != 1) {
+                        ?>
+                            <a class="btn btn-secondary" href="<?= $url; ?>/report">Signaler</a>
+                        <?php
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -67,10 +90,10 @@
         </div>
         <?php } ?>
         
-        <textarea class="comment-content-input" name="content" rows="3" cols="100" 
-            placeholder="Votre commentaire" required>
-            <?= $contentValue ?> 
-        </textarea>
+        <textarea class="comment-content-input" name="content" 
+            rows="3" cols="100" 
+            placeholder="Votre commentaire" 
+            required><?= $contentValue ?></textarea>
 
         <?php if (isset($errors['content'])) { ?>
         <div class="alert alert-danger text-left" role="alert">

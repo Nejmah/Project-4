@@ -19,11 +19,32 @@ class CommentManager extends Manager {
         ));
     }
 
+    // Met à jour un commentaire
+    public function update(Comment $comment) {
+        $req = $this->db->prepare('UPDATE comments SET author = :author, content = :content, is_reported = :isReported, is_approved = :isApproved WHERE id = :id');
+        
+        $req->execute(array(
+            'id' => $comment->getId(),
+            'author' => $comment->getAuthor(),
+            'content' => $comment->getContent(),
+            'isReported' => $comment->getIsReported(),
+            'isApproved' => $comment->getIsApproved()
+        ));
+
+        return $comment;
+    }
+
+    // Supprime un commentaire
+    public function delete(Comment $comment) {
+        $req = $this->db->prepare('DELETE FROM comments WHERE id = ?');
+        $req->execute(array($comment->getId()));
+    }
+
     // Retourne la liste de tous les commentaires
     public function all() {
         $comments = [];
 
-        $req = $this->db->query('SELECT id, author, content, DATE_FORMAT (created_at, \'%d/%m/%y\') AS createdAt FROM comments ORDER BY created_at');
+        $req = $this->db->query('SELECT id, chapter_id AS chapterId, author, content, is_reported AS isReported, is_approved AS isApproved, DATE_FORMAT (created_at, \'%d/%m/%y\') AS createdAt FROM comments ORDER BY created_at');
 
         while ($data = $req->fetch(\PDO::FETCH_ASSOC)) { // Chaque entrée sera récupérée et placée dans le tableau $chapters
             $comments[] = new Comment($data);
@@ -32,11 +53,22 @@ class CommentManager extends Manager {
         return $comments;
     }
 
+    // Retourne un commentaire
+    public function find($id) {
+        $req = $this->db->prepare('SELECT id, chapter_id AS chapterId, author, content, is_reported AS isReported, is_approved AS isApproved,DATE_FORMAT (created_at, \'%d/%m/%y\') AS createdAt FROM comments WHERE id = ?');
+        $req->execute(array($id));
+        $result = $req->fetch(\PDO::FETCH_ASSOC);
+        
+        $comment = new Comment($result);
+
+        return $comment;
+    }
+
     // Retourne tous les commentaires associés à un chapitre
     public function forChapter($chapterId) {
         $comments = [];
 
-        $req = $this->db->prepare('SELECT id, author, content, DATE_FORMAT (created_at, \'%d/%m/%y\') AS createdAt FROM comments WHERE chapter_id = ? ORDER BY created_at');
+        $req = $this->db->prepare('SELECT id, chapter_id AS chapterId, author, content,  is_reported AS isReported, is_approved AS isApproved, DATE_FORMAT (created_at, \'%d/%m/%y\') AS createdAt FROM comments WHERE chapter_id = ? ORDER BY created_at');
         $req->execute(array($chapterId));
         
         while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {

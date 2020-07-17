@@ -17,7 +17,7 @@
             <li class="nav-item">
                 <?php
                 if (isset($_SESSION['admin-connected']) 
-                && $_SESSION['admin-connected'] == true) {
+                    && $_SESSION['admin-connected'] == true) {
                 ?>
                     <a class="nav-link" href="/Project-4/admin">ADMINISTRATION</a>
                 <?php

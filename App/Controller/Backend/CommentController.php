@@ -28,5 +28,34 @@ class CommentController extends Controller {
         }
         header('Location: /Project-4/chapters/' . $_POST['chapter_id']);
     }
+
+    public function report($id) {
+        $comment = $this->manager->find($id);
+        $comment->addNewReport();
+        $this->manager->update($comment);
+
+        // On retourne sur la page du chapitre où le commentaire a été signalé
+        $chapterId = $comment->getChapterId();
+        header('Location: /Project-4/chapters/' . $chapterId);
+    }
+
+    public function approve($id) {
+        $comment = $this->manager->find($id);
+        $comment->setIsApproved(1);
+        $this->manager->update($comment);
+
+        // On retourne sur la page du chapitre où le commentaire a été signalé
+        $chapterId = $comment->getChapterId();
+        header('Location: /Project-4/chapters/' . $chapterId);
+    }
+
+    public function delete($id) {
+        $comment = $this->manager->find($id);
+        $this->manager->delete($comment);
+
+        // On retourne sur la page du chapitre où le commentaire a été signalé
+        $chapterId = $comment->getChapterId();
+        header('Location: /Project-4/chapters/' . $chapterId);
+    }
 }
 ?>
