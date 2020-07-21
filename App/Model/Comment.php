@@ -80,7 +80,7 @@ class Comment extends Model {
             $this->errors['content'] = "Veuillez remplir tous les champs.";
         }
 
-        if (strlen($content) < 3) {
+        if (strlen($content) < 2) {
             $this->errors['content'] = "Votre commentaire est trop court !";
         }
 
@@ -101,11 +101,19 @@ class Comment extends Model {
 
     // Méthode qui inncrémente le champ isReported
     public function addNewReport() {
-        $this->isReported = $this->isReported + 1;
+        // $this->isReported = $this->isReported + 1;
+        $this->isReported++;
     }
 
     public function setIsApproved($isApproved) {
         $this->isApproved = $isApproved;
+    }
+
+    public function __set($name, $value) {
+        if (property_exists($this, $name)) {
+            $methodName = "set" . ucfirst($name);
+            $this->$methodName($value);    
+        }
     }
 }
 ?>

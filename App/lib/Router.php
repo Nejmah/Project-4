@@ -34,25 +34,26 @@ class Router {
                     $this->currentRoute = $route;
                     return true;
                 }
-            }
 
-            if ($route->getHasParam()) {
-                $routeParts = $route->getParts();
-                if (count($this->parts) == count($routeParts)) {
-                    $isTheSame = true;
-                    foreach($this->parts as $index => $part) {
-                        if ($part != $routeParts[$index] && $index != $route->getParamIndex()) {
-                            $isTheSame = false;
-                            break;
+                if ($route->getHasParam()) {
+                    $routeParts = $route->getParts();
+                    if (count($this->parts) == count($routeParts)) {
+                        $isTheSame = true;
+                        foreach($this->parts as $index => $part) {
+                            if ($part != $routeParts[$index] && $index != $route->getParamIndex()) {
+                                $isTheSame = false;
+                                break;
+                            }
+                        } 
+                                
+                        if ($isTheSame) {
+                            $this->currentRoute = $route;
+                            return true;
                         }
-                    } 
-                            
-                    if ($isTheSame) {
-                        $this->currentRoute = $route;
-                        return true;
                     }
                 }
             }
+
         }
         return false;
     }

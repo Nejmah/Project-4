@@ -17,34 +17,25 @@
 
     <h3>Commentaires</h3>
 
-    <?php
-    $str = "Un 'apostrophe' en <strong>gras</strong>.";
-    echo ($str);
-    ?>
-    </br>
-    <?php
-    echo htmlentities($str);
-    ?>
-    </br>
-    <?php
-    echo htmlentities($str, ENT_QUOTES); // Marche pas
-    ?>
-    
     <div class="comments-list">
         <?php
         foreach ($comments as $comment) {
         ?>
         <div class="comment">
             <div class="comment-author">
+                    <!-- html entities -->
+
                 <h5><?= htmlspecialchars($comment->getAuthor()); ?></h5>
                 <p>Publié le <?= $comment->getCreatedAt(); ?></p>
             </div>
 
             <div class="row comment-content">
-                <div class="comment-text col-md-10">
+                <div class="comment-text col-md-9">
+                        <!-- html entities -->
+
                     <?= $comment->getContent(); ?>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3 text-right">
                     <?php
                     $url = "/Project-4/comments/" . $comment->getId();
 
@@ -56,15 +47,21 @@
                             && $comment->getIsApproved() != 1) {
                             // Commentaire déjà signalé mais pas approuvé
                         ?>
-                            <a class="btn btn-success" href="<?= $url; ?>/approve">Approuver</a>
-                            <a class="btn btn-danger" href="<?= $url; ?>/delete">Supprimer</a>
+                            <form method="post" action="<?= $url; ?>/approve">
+                                <button class="btn btn-secondary" type="submit">Approuver</button>
+                            </form>
+                            <form method="post" action="<?= $url; ?>/delete">
+                                <button class="btn btn-danger" type="submit">Supprimer</button>
+                            </form>
                         <?php
                         }
                     }
                     else { // Non connecté : on affiche le bouton Signaler si le commentaire n'est pas approuvé
                         if ($comment->getIsApproved() != 1) {
                         ?>
-                            <a class="btn btn-secondary" href="<?= $url; ?>/report">Signaler</a>
+                            <form method="post" action="<?= $url; ?>/report">
+                                <button class="btn btn-secondary" type="submit">Signaler</button>
+                            </form>
                         <?php
                         }
                     }

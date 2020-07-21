@@ -11,7 +11,7 @@ foreach ($chapters as $chapter) {
                 <!-- Limite le texte à 300 caractères -->
                 <?= substr($chapter->getContent(), 3, 300); ?>
             </div>
-            <div class="col-md-2 read-more-button">
+            <div class="col-md-2 text-right read-more-button">
                 <a class="btn btn-secondary" href="/Project-4/chapters/<?= $chapter->getId(); ?>">Lire la suite</a>
             </div>
         </div>

@@ -108,24 +108,24 @@ $router->add(new Route('POST', '/chapters/[id]/delete', function($id) {
 
 /*Add-comment*/
 $router->add(new Route('POST', '/comments', function() {
-    $controller = new App\Controller\Backend\CommentController();
+    $controller = new App\Controller\Frontend\CommentController();
     $controller->store();
 }));
 
 /*Report-comment*/
 $router->add(new Route('POST', '/comments/[id]/report', function($id) {
-    $controller = new App\Controller\Backend\CommentController();
+    $controller = new App\Controller\Frontend\CommentController();
     $controller->report($id);
 }));
 
 /*Approve-comment*/
-$router->add(new Route('GET', '/comments/[id]/approve', function($id) {
+$router->add(new Route('POST', '/comments/[id]/approve', function($id) {
     $controller = new App\Controller\Backend\CommentController();
     $controller->approve($id);
 }));
 
 /*Delete-comment*/
-$router->add(new Route('GET', '/comments/[id]/delete', function($id) {
+$router->add(new Route('POST', '/comments/[id]/delete', function($id) {
     $controller = new App\Controller\Backend\CommentController();
     $controller->delete($id);
 }));
