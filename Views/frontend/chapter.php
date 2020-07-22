@@ -23,17 +23,13 @@
         ?>
         <div class="comment">
             <div class="comment-author">
-                    <!-- html entities -->
-
-                <h5><?= htmlspecialchars($comment->getAuthor()); ?></h5>
+                <h5><?= htmlentities($comment->getAuthor()); ?></h5>
                 <p>Publié le <?= $comment->getCreatedAt(); ?></p>
             </div>
 
             <div class="row comment-content">
                 <div class="comment-text col-md-9">
-                        <!-- html entities -->
-
-                    <?= $comment->getContent(); ?>
+                    <?= htmlentities($comment->getContent()); ?>
                 </div>
                 <div class="col-md-3 text-right">
                     <?php
@@ -43,7 +39,7 @@
                         && $_SESSION['admin-connected'] == true) {
                         // L'administrateur est connecté
                         
-                        if ($comment->getIsReported() > 0
+                        if ($comment->getIsReported()
                             && $comment->getIsApproved() != 1) {
                             // Commentaire déjà signalé mais pas approuvé
                         ?>
@@ -67,6 +63,21 @@
                     }
                     ?>
                 </div>
+
+                <!-- Report-Alert : message de succès -->
+                <?php
+                if ($comment->getIsReported()) {
+                    ?>
+                    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                        Le commentaire a été signalé.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <?php
+                }
+                ?>
+
             </div>
         </div>
         <?php

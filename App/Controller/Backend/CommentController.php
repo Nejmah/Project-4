@@ -9,14 +9,20 @@ class CommentController extends Controller {
 
     public function __construct()
     {
-        // parent::__construct();
-        // $this->renderer->setViewsPath("views/backend/");
+        parent::__construct();
+        $this->renderer->setViewsPath("views/backend/");
         $this->manager = new CommentManager();
+    }
+
+    public function moderate() {
+        $this->response('moderate', [
+            'comments' => $this->manager->allReported()
+        ]);
     }
 
     public function approve($id) {
         $comment = $this->manager->find($id);
-        // $comment->setIsApproved(1);
+        // On modifie la propriété isApproved
         $comment->isApproved = 1;
         $this->manager->update($comment);
 

@@ -2,14 +2,14 @@
 namespace App\Controller\Backend;
 
 use App\Controller\Controller;
-use App\Manager\ChapterManager;
+use App\Manager\CommentManager;
 
 class BackController extends Controller {
 
     public function __construct() {
         parent::__construct();
         $this->renderer->setViewsPath("views/backend/");
-        $this->manager = new ChapterManager();
+        $this->manager = new CommentManager();
 
         // On vérifie la connexion
         $this->isConnected();
@@ -24,7 +24,9 @@ class BackController extends Controller {
     }
 
     public function admin() {
-            $this->response('admin');
+        $this->response('admin', [
+            'totalReported' => $this->manager->getReportedTotal()
+        ]);
     }
 
     public function disconnect()

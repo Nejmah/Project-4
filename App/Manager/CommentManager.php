@@ -27,7 +27,7 @@ class CommentManager extends Manager {
             'id' => $comment->getId(),
             'author' => $comment->getAuthor(),
             'content' => $comment->getContent(),
-            'isReported' => $comment->getIsReported(),
+            'isReported' => $comment->getReportedCount(),
             'isApproved' => $comment->getIsApproved()
         ));
 
@@ -51,6 +51,27 @@ class CommentManager extends Manager {
         }
 
         return $comments;
+    }
+
+    // Retourne la liste de tous les commentaires signalés
+    public function allReported() {
+        $comments = [];
+
+        $req = $this->db->query('SELECT id, chapter_id AS chapterId, author, content, is_reported AS isReported, is_approved AS isApproved, DATE_FORMAT (created_at, \'%d/%m/%y\') AS createdAt FROM comments WHERE is_reported > 0 ORDER BY created_at');
+
+        while ($data = $req->fetch(\PDO::FETCH_ASSOC)) { // Chaque entrée sera récupérée et placée dans le tableau $chapters
+            $comments[] = new Comment($data);
+        }
+
+        return $comments;
+    }
+    
+    // Retourne le nombre de signalements
+    public function getReportedTotal() {
+        $req = $this->db->query('SELECT COUNT(*) AS total FROM comments WHERE is_reported > 0');
+        $result = $req->fetch();
+        $total = $result['total'];
+        return $total;
     }
 
     // Retourne un commentaire

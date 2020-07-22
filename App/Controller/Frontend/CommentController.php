@@ -32,7 +32,7 @@ class CommentController extends Controller {
 
     public function report($id) {
         $comment = $this->manager->find($id);
-        $comment->addNewReport();
+        $comment->incrementReportCount();
         $this->manager->update($comment);
 
         // On retourne sur la page du chapitre où le commentaire a été signalé

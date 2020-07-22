@@ -37,6 +37,13 @@ class Comment extends Model {
     }
 
     public function getIsReported() {
+        if ($this->isReported > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public function getReportedCount() {
         return $this->isReported;
     }
 
@@ -99,9 +106,8 @@ class Comment extends Model {
         $this->isReported = $total;
     }
 
-    // Méthode qui inncrémente le champ isReported
-    public function addNewReport() {
-        // $this->isReported = $this->isReported + 1;
+    // Méthode qui incrémente le champ isReported
+    public function incrementReportCount() {
         $this->isReported++;
     }
 
@@ -109,6 +115,7 @@ class Comment extends Model {
         $this->isApproved = $isApproved;
     }
 
+    // Méthode magique
     public function __set($name, $value) {
         if (property_exists($this, $name)) {
             $methodName = "set" . ucfirst($name);

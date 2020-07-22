@@ -12,8 +12,8 @@
                 href="/Project-4/chapters/<?= $chapter->getId(); ?>/edit">
                 Modifier
             </a>
-            <button type="button" class="btn btn-danger delete-post-button" 
-                data-toggle="modal" data-target="#deleteModal" 
+            <button type="button" class="btn btn-danger delete-chapter-button" 
+                data-toggle="modal" data-target="#deleteChapterModal" 
                 data-delete-url="/Project-4/chapters/<?= $chapter->getId(); ?>/delete">
                 Supprimer
             </button>
@@ -24,7 +24,7 @@
 ?>
 
 <!-- Popup pour confirmer la suppression d'un billet -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteChapterModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
@@ -42,4 +42,10 @@
         </div>
         </div>
     </div>
+</div>
+
+<div class="logout-button">
+    <a href="/Project-4/logout" data-toggle="tooltip" title="Déconnexion">
+        <img src="/Project-4/assets/img/logout.png" alt="logout">
+    </a>
 </div>

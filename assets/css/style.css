@@ -298,6 +298,10 @@ footer p {
     color: rgb(60, 106, 141);
 }
 
+.admin-nav .moderate-comments {
+    color: red;
+}
+
 .admin-nav li a:hover {
     font-weight: bold;
 }
@@ -340,18 +344,21 @@ footer p {
     margin-top: 10px;
 }
 
-/*Chapters-table*/
+/*Chapters-table & Comments-table*/
 
-.chapters-table-title {
+.chapters-table-title,
+.comments-table-title {
     margin-bottom: 60px;
 }
 
-.chapter-title-table {
+.chapter-title-table,
+.comment-title-table {
     font-size: 20px;
     color: rgb(60, 106, 141);
 }
 
-.chapters-table {
+.chapters-table,
+.comments-table {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 5px;
     margin: 0 0 20px 0;
@@ -359,14 +366,19 @@ footer p {
     padding-bottom: 15px;
 }
 
-.chapters-table:hover {
-    /* background-color: rgba(255, 255, 255, 0.3); */
+.chapters-table:hover,
+.comments-table:hover {
     font-weight: bold;
 }
 
 .chapters-table .btn-secondary,
-.modal-footer .btn-secondary {
+.modal-footer .btn-secondary,
+.comments-table .btn-secondary {
     margin-right: 12px;
+}
+
+.comments-table form {
+    display: initial;
 }
 
 /* Modal de suppression d'un billet */
