@@ -15,6 +15,15 @@
 	
 	<body class="admin-page">
 		<div class="container">
+			<header>
+				<h1><?= $title ?></h1>
+				<div class="logout-button">
+					<a href="/Project-4/logout" data-toggle="tooltip" title="Déconnexion">
+						<img src="/Project-4/assets/img/logout.png" alt="logout">
+					</a>
+				</div>
+			</header>
+
 			<main>
 				<?= $content ?>
 			</main>
@@ -29,7 +38,7 @@
   		<script>
 		    tinymce.init({
 			    selector: "textarea",
-				height: 400,
+				height: 500,
 				menubar: false,
 			});
 		</script>

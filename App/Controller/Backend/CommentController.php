@@ -16,6 +16,7 @@ class CommentController extends Controller {
 
     public function moderate() {
         $this->response('moderate', [
+            'title' => "Modérer les commentaires",
             'comments' => $this->manager->allReported()
         ]);
     }

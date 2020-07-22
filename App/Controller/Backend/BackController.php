@@ -25,6 +25,7 @@ class BackController extends Controller {
 
     public function admin() {
         $this->response('admin', [
+            'title' => "Bienvenue dans votre espace",
             'totalReported' => $this->manager->getReportedTotal()
         ]);
     }

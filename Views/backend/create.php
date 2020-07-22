@@ -1,5 +1,3 @@
-<h1>Ajouter un nouveau chapitre</h1>
-
 <form class="create-chapter-form" method="post" action="/Project-4/chapters">
     <div class="form-row">
         <div class="form-group col-md-12">
@@ -17,8 +15,7 @@
     </div>
     <div class="form-row">
         <div class="col-md-12 text-right">
-            <!-- rows ? cols ? placeholder ? -->
-            <textarea name="content" rows="20" cols="100" placeholder="Texte">
+            <textarea name="content" placeholder="Entrez votre texte">
                 <?= $contentValue ?>
             </textarea>
             

@@ -1,5 +1,3 @@
-<h1 class="chapters-table-title">Gérer les chapitres</h1>
-
 <?php
     foreach ($chapters as $chapter) {
     ?>
@@ -42,10 +40,4 @@
         </div>
         </div>
     </div>
-</div>
-
-<div class="logout-button">
-    <a href="/Project-4/logout" data-toggle="tooltip" title="Déconnexion">
-        <img src="/Project-4/assets/img/logout.png" alt="logout">
-    </a>
 </div>

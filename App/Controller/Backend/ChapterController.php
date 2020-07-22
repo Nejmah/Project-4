@@ -16,6 +16,7 @@ class ChapterController extends Controller {
 
     public function create() {
         $this->response('create', [
+            'title' => "Ajouter un nouveau chapitre",
             'titleValue' => $this->hasInputs('title'),
             'contentValue' => $this->hasInputs('content'),
             'errors' => $_SESSION['errors']
@@ -24,6 +25,7 @@ class ChapterController extends Controller {
 
     public function table() {
         $this->response('table', [
+            'title' => "Gérer les chapitres",
             'chapters' => $this->manager->all()
         ]);
     }
