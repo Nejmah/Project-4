@@ -15,5 +15,9 @@
         <li class="nav-item">
             <a class="nav-link" href="/Project-4/manage">Gérer les chapitres</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Project-4/password/edit">Changer le mot de passe</a>
+        </li>
+
     </ul>
 </div>

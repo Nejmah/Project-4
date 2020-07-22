@@ -1,0 +1,30 @@
+<?php
+namespace App\Controller\Backend;
+
+use App\Controller\Controller;
+use App\Manager\UserManager;
+use App\Model\User;
+
+class UserController extends Controller {
+
+    public function __construct() {
+        parent::__construct();
+        $this->renderer->setViewsPath("views/backend/");
+        $this->manager = new UserManager();
+    }
+
+    public function edit() {
+        // Affiche le formulaire pour modifier le mot de passe
+        $this->response('password', [
+            'title' => "Modifier votre mot de passe"
+        ]);
+    }
+
+    public function update() {
+        $password = $_POST['password'];
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+
+        $this->manager->update($hash);
+        header('Location: /Project-4/admin');
+    }
+}

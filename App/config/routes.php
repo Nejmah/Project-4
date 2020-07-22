@@ -3,8 +3,7 @@
 use App\lib\Route;
 use App\Controller\Frontend\FrontController;
 use App\Controller\Backend\BackController;
-
-// use App\Controller\Frontend\ChapterController as FrontChapterManager;
+use App\Controller\Backend\UserController;
 
 /*----------------------------------------------
                     FRONT
@@ -136,4 +135,19 @@ $router->add(new Route('POST', '/comments/[id]/delete', function($id) {
     $controller->delete($id);
 }));
 
+/*----------------------------------------------
+                    USER
+----------------------------------------------*/
+
+/*Change-password*/
+$router->add(new Route('GET', '/password/edit', function() {
+    $controller = new App\Controller\Backend\UserController();
+    $controller->edit();
+}));
+
+/*Update-password*/
+$router->add(new Route('POST', '/password/update', function() {
+    $controller = new App\Controller\Backend\UserController();
+    $controller->update();
+}));
 ?>

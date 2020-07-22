@@ -2,12 +2,14 @@
 namespace App\Controller\Frontend;
 
 use App\Controller\Controller;
+use App\Manager\UserManager;
 
 class FrontController extends Controller {
 
     public function __construct() {
         parent::__construct();
         $this->renderer->setViewsPath("views/frontend/");
+        $this->manager = new UserManager();
     }
 
     public function home() {
@@ -25,7 +27,9 @@ class FrontController extends Controller {
     public function connect() {
         // Si le mot de passe est correct,
         if (isset($_POST['password'])) {
-            if ($_POST['password'] == "Alaska"){
+            $hash = $this->manager->getPassword();
+
+            if (password_verify($_POST['password'], $hash)) {
                 // On ouvre une session
                 $_SESSION['admin-connected'] = true;
                 // et on affiche la page pour l'administrateur
