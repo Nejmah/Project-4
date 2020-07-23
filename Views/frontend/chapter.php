@@ -15,12 +15,18 @@
         <p><?= $chapter->getContent(); ?></p>
     </div>
 
-    <h3>Commentaires</h3>
+    <?php
+    if (!empty($comments)) {
+    ?>  
+        <h3>Commentaires</h3>
+    <?php
+    }
+    ?>  
 
     <div class="comments-list">
         <?php
         foreach ($comments as $comment) {
-        ?>
+        ?>        
         <div class="comment">
             <div class="comment-author">
                 <h5><?= htmlentities($comment->getAuthor()); ?></h5>
@@ -31,7 +37,7 @@
                 <div class="comment-text col-md-9">
                     <?= htmlentities($comment->getContent()); ?>
                 </div>
-                <div class="col-md-3 text-right">
+                <div class="col-md-3 comment-buttons">
                     <?php
                     $url = "/Project-4/comments/" . $comment->getId();
 
@@ -43,11 +49,11 @@
                             && $comment->getIsApproved() != 1) {
                             // Commentaire déjà signalé mais pas approuvé
                         ?>
-                            <form method="post" action="<?= $url; ?>/approve">
-                                <button class="btn btn-secondary" type="submit">Approuver</button>
-                            </form>
                             <form method="post" action="<?= $url; ?>/delete">
                                 <button class="btn btn-danger" type="submit">Supprimer</button>
+                            </form>
+                            <form method="post" action="<?= $url; ?>/approve">
+                                <button class="btn btn-secondary approve-button" type="submit">Approuver</button>
                             </form>
                         <?php
                         }
@@ -63,22 +69,22 @@
                     }
                     ?>
                 </div>
-
-                <!-- Report-Alert : message de succès -->
-                <?php
-                if ($comment->getIsReported()) {
-                    ?>
-                    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-                        Le commentaire a été signalé.
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <?php
-                }
-                ?>
-
             </div>
+
+            <!-- Report-Alert : message de succès -->
+            <?php
+            if ($comment->getIsReported()) {
+                ?>
+                <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                    Le commentaire a été signalé.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php
+            }
+            ?>
+
         </div>
         <?php
         }

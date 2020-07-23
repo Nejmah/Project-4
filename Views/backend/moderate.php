@@ -45,7 +45,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-            <form method="post" action="<?= $url; ?>/delete">
+            <form method="post" action="#" class="delete-form">
                 <button class="btn btn-danger delete-link" type="submit">
                     Confirmer
                 </button>

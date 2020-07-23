@@ -1,5 +1,3 @@
-<h1>Modifier un chapitre</h1>
-
 <form class="update-chapter-form" method="post" action="/Project-4/chapters/<?= $chapter->getId(); ?>/update">
     <div class="form-row">
         <div class="form-group col-md-12">

@@ -6,13 +6,16 @@
             <?= htmlspecialchars($chapter->getTitle()); ?>
         </div>
         <div class="col-md-3 text-right">
+            <?php
+            $url = "/Project-4/chapters/" . $chapter->getId();
+            ?>
             <a class="btn btn-secondary"
-                href="/Project-4/chapters/<?= $chapter->getId(); ?>/edit">
+                href="<?= $url; ?>/edit">
                 Modifier
             </a>
             <button type="button" class="btn btn-danger delete-chapter-button" 
                 data-toggle="modal" data-target="#deleteChapterModal" 
-                data-delete-url="/Project-4/chapters/<?= $chapter->getId(); ?>/delete">
+                data-delete-url="<?= $url; ?>/delete">
                 Supprimer
             </button>
         </div>
@@ -36,7 +39,11 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-            <a class="btn btn-danger delete-link" href="#">Confirmer</a>
+            <form method="post" action="#" class="delete-form">
+                <button class="btn btn-danger delete-link" type="submit">
+                    Confirmer
+                </button>
+            </form>            
         </div>
         </div>
     </div>

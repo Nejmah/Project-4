@@ -1,4 +1,10 @@
-<form method="post" action="/Project-4/password/update">
-    <input type="password" class="" id="password" name="password" placeholder="Nouveau mot de passe" required>
-    <button class="btn btn-primary" type="submit">Valider</button>
+<form class="password-form" method="post" action="/Project-4/password/update">
+    <div class="form-row justify-content-center">
+        <div class="col-md-3">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Nouveau mot de passe" required>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-primary" type="submit">Valider</button>
+        </div>
+    </div>
 </form>

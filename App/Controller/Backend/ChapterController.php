@@ -51,6 +51,7 @@ class ChapterController extends Controller {
         // Afficher le formulaire pour le modifier
         $chapter = $this->manager->find($id);
         $this->response('edit', [
+            'title' => "Modifier un chapitre",
             'chapter' => $chapter
         ]);
     }
