@@ -11,6 +11,9 @@ class UserController extends Controller {
         parent::__construct();
         $this->renderer->setViewsPath("views/backend/");
         $this->manager = new UserManager();
+
+        // On vérifie la connexion
+        $this->isConnected();
     }
 
     public function edit() {

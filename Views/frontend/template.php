@@ -20,9 +20,7 @@
 				<?php include('navigation.php'); ?>
 			</header>
 
-			<main>
-				<?= $content ?>
-			</main>
+			<?= $content ?>
 
 			<footer>
 				<p>Copyright © Jean Forteroche 2020</p>

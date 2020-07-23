@@ -1,5 +1,5 @@
-<div class="about-page">
-
+<main class="about-page">
+    
     <p class="under-title">À propos de l'auteur</p>
 
     <div class="author-presentation">
@@ -14,5 +14,5 @@
     <p class="chapters-button text-center">
         <a class="btn btn-secondary btn-lg" href="/Project-4/chapters">Chapitres</a>
     </p>
-
-</div>
+    
+</main>

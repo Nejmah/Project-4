@@ -12,6 +12,9 @@ class ChapterController extends Controller {
         parent::__construct();
         $this->renderer->setViewsPath("views/backend/");
         $this->manager = new ChapterManager();
+
+        // On vérifie la connexion
+        $this->isConnected();
     }
 
     public function create() {

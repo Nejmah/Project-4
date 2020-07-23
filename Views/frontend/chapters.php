@@ -1,4 +1,4 @@
-<div class="chapters-page">
+<main class="chapters-page">
     <h1>Billet simple pour l'Alaska</h1>
     <?php
     foreach ($chapters as $chapter) {
@@ -9,7 +9,7 @@
         </div>
         <div class="chapter-content">
             <!-- Limite le texte à 500 caractères -->
-            <?= substr($chapter->getContent(), 0, 500); ?>
+            <?= substr($chapter->getContent(), 0, 500) . "..." ; ?>
 
             <div class="read-more-button">
                 <a class="btn btn-secondary" 
@@ -21,4 +21,4 @@
         <?php
     }
     ?>
-</div>
+</main>

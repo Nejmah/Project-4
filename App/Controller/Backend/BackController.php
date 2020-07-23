@@ -15,14 +15,6 @@ class BackController extends Controller {
         $this->isConnected();
     }
 
-    private function isConnected() {
-        // S'il y a une session,
-        if ($_SESSION['admin-connected'] == false) {
-            // Sinon, on redirige sur la page de connexion
-            header('Location: /Project-4/login');
-        }
-    }
-
     public function admin() {
         $this->response('admin', [
             'title' => "Bienvenue dans votre espace",

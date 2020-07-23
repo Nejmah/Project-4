@@ -1,4 +1,4 @@
-<div class="chapter-page">
+<main class="chapter-page">
 
     <h1>Billet simple pour l'Alaska</h1>
 
@@ -19,77 +19,80 @@
     if (!empty($comments)) {
     ?>  
         <h3>Commentaires</h3>
-    <?php
-    }
-    ?>  
 
-    <div class="comments-list">
-        <?php
-        foreach ($comments as $comment) {
-        ?>        
-        <div class="comment">
-            <div class="comment-author">
-                <h5><?= htmlentities($comment->getAuthor()); ?></h5>
-                <p>Publié le <?= $comment->getCreatedAt(); ?></p>
-            </div>
+        <div class="comments-list">
+            <?php
+            foreach ($comments as $comment) {
+            ?>        
+                <div class="comment">
+                    <div class="comment-author">
+                        <h5><?= htmlentities($comment->getAuthor()); ?></h5>
+                        <p>Publié le <?= $comment->getCreatedAt(); ?></p>
+                    </div>
 
-            <div class="row comment-content">
-                <div class="comment-text col-md-9">
-                    <?= htmlentities($comment->getContent()); ?>
-                </div>
-                <div class="col-md-3 comment-buttons">
+                    <div class="row comment-content">
+                        <div class="comment-text col-md-9">
+                            <?= htmlentities($comment->getContent()); ?>
+                        </div>
+                        <div class="col-md-3 comment-buttons">
+                            <?php
+                            $url = "/Project-4/comments/" . $comment->getId();
+
+                            if (isset($_SESSION['admin-connected']) 
+                                && $_SESSION['admin-connected'] == true) {
+                                // L'administrateur est connecté
+                                
+                                if ($comment->getIsReported()
+                                    && $comment->getIsApproved() != 1) {
+                                    // Commentaire déjà signalé mais pas approuvé
+                                    ?>
+                                    <form method="post" action="<?= $url; ?>/delete">
+                                        <button class="btn btn-danger" type="submit">Supprimer</button>
+                                    </form>
+                                    <form method="post" action="<?= $url; ?>/approve">
+                                        <button class="btn btn-secondary approve-button" type="submit">Approuver</button>
+                                    </form>
+                                <?php
+                                }
+                            }
+                            else { // Non connecté : on affiche le bouton Signaler si le commentaire n'est pas approuvé
+                                if ($comment->getIsApproved() != 1) {
+                                    ?>
+                                    <form method="post" action="<?= $url; ?>/report">
+                                        <button class="btn btn-secondary" type="submit">Signaler</button>
+                                    </form>
+                                <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
+
+                    <!-- Report-Alert : message de succès -->
                     <?php
-                    $url = "/Project-4/comments/" . $comment->getId();
-
-                    if (isset($_SESSION['admin-connected']) 
-                        && $_SESSION['admin-connected'] == true) {
-                        // L'administrateur est connecté
-                        
-                        if ($comment->getIsReported()
-                            && $comment->getIsApproved() != 1) {
-                            // Commentaire déjà signalé mais pas approuvé
+                    if ($comment->getIsReported()
+                        && $comment->getIsApproved() != 1) {
                         ?>
-                            <form method="post" action="<?= $url; ?>/delete">
-                                <button class="btn btn-danger" type="submit">Supprimer</button>
-                            </form>
-                            <form method="post" action="<?= $url; ?>/approve">
-                                <button class="btn btn-secondary approve-button" type="submit">Approuver</button>
-                            </form>
+                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                            Le commentaire a été signalé.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                         <?php
-                        }
-                    }
-                    else { // Non connecté : on affiche le bouton Signaler si le commentaire n'est pas approuvé
-                        if ($comment->getIsApproved() != 1) {
-                        ?>
-                            <form method="post" action="<?= $url; ?>/report">
-                                <button class="btn btn-secondary" type="submit">Signaler</button>
-                            </form>
-                        <?php
-                        }
                     }
                     ?>
                 </div>
-            </div>
 
-            <!-- Report-Alert : message de succès -->
-            <?php
-            if ($comment->getIsReported()) {
-                ?>
-                <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-                    Le commentaire a été signalé.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <?php
+            <?php 
             }
             ?>
-
+        
         </div>
-        <?php
-        }
-        ?>
-    </div>
+
+    <?php 
+    }
+    ?>
 
     <h3 class="add-comment">Ajouter un commentaire</h3>
     
@@ -117,5 +120,4 @@
 
         <input class="publish-button btn btn-secondary" type="submit" value="Publier">
     </form>
-
-</div>
+</main>

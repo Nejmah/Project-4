@@ -12,6 +12,9 @@ class CommentController extends Controller {
         parent::__construct();
         $this->renderer->setViewsPath("views/backend/");
         $this->manager = new CommentManager();
+
+        // On vérifie la connexion
+        $this->isConnected();
     }
 
     public function moderate() {

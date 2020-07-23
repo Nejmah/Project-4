@@ -16,6 +16,14 @@ abstract class Controller {
         $this->renderer->render($viewName, $args);
     }
 
+    public function isConnected() {
+        // S'il y a une session,
+        if ($_SESSION['admin-connected'] == false) {
+            // Sinon, on redirige sur la page de connexion
+            header('Location: /Project-4/login');
+        }
+    }
+
     public function emptyErrorsAndInputs(){
         $_SESSION['errors'] = [];
         $_SESSION['inputs'] = [];
