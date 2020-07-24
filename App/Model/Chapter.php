@@ -69,11 +69,11 @@ class Chapter extends Model {
             $this->errors['content'] = "Veuillez remplir tous les champs.";
         }
 
-        if (strlen($content) < 10) {
+        if (strlen($content) < 50) {
             $this->errors['content'] = "Le texte n'est pas assez long.";
         }
 
-        if (strlen($content) > 1000) {
+        if (strlen($content) > 5000) {
             $this->errors['content'] = "Le texte est trop long.";
         }
 
