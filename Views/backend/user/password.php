@@ -1,4 +1,4 @@
-<form class="password-form" method="post" action="/Project-4/password/update">
+<form class="password-form" method="post" action="/Project-4/auth/password/update">
     <div class="form-row justify-content-center">
         <div class="col-md-3">
             <input type="password" class="form-control" id="password" name="password" placeholder="Nouveau mot de passe" required>

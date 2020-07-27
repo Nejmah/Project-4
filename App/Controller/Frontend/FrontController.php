@@ -20,11 +20,11 @@ class FrontController extends Controller {
         $this->response('about');
     }
 
-    public function login() {
+    public function loginForm() {
         $this->response('login');
     }
 
-    public function connect() {
+    public function login() {
         // Si le mot de passe est correct,
         if (isset($_POST['password'])) {
             $hash = $this->manager->getPassword();
@@ -34,7 +34,6 @@ class FrontController extends Controller {
                 $_SESSION['admin-connected'] = true;
                 // et on affiche la page pour l'administrateur
                 header('Location: /Project-4/admin');
-                // $this->response('admin');
             }
             else {
                 // Si le mot de passe est incorrect,

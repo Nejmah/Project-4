@@ -10,15 +10,15 @@ class CommentController extends Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->renderer->setViewsPath("views/backend/");
+        $this->renderer->setViewsPath("views/backend/comments/");
         $this->manager = new CommentManager();
 
         // On vérifie la connexion
         $this->isConnected();
     }
 
-    public function moderate() {
-        $this->response('moderate', [
+    public function index() {
+        $this->response('index', [
             'title' => "Modérer les commentaires",
             'comments' => $this->manager->allReported()
         ]);

@@ -10,7 +10,7 @@ class ChapterController extends Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->renderer->setViewsPath("views/backend/");
+        $this->renderer->setViewsPath("views/backend/chapters/");
         $this->manager = new ChapterManager();
 
         // On vérifie la connexion
@@ -26,8 +26,8 @@ class ChapterController extends Controller {
         ]);
     }
 
-    public function table() {
-        $this->response('table', [
+    public function index() {
+        $this->response('index', [
             'title' => "Gérer les chapitres",
             'chapters' => $this->manager->all()
         ]);
@@ -47,7 +47,7 @@ class ChapterController extends Controller {
         $chapter = $this->manager->add($chapter);
         // On vide errors & inputs
         $this->emptyErrorsAndInputs();
-        $this->table();
+        $this->index();
     }
 
     public function edit($id) {
@@ -67,7 +67,7 @@ class ChapterController extends Controller {
 
         $this->manager->update($chapter);
 
-        $this->table();
+        $this->index();
     }
 
     public function delete($id) {
@@ -75,7 +75,7 @@ class ChapterController extends Controller {
 
         $this->manager->delete($chapter);
 
-        $this->table();
+        $this->index();
     }
 }
 ?>

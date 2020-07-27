@@ -7,7 +7,6 @@ class Chapter extends Model {
 
     private $id;
     private $createdAt;
-    private $updatedAt;
     private $title;
     private $content;
     
@@ -20,10 +19,6 @@ class Chapter extends Model {
 
     public function getCreatedAt() {
         return $this->createdAt;
-    }
-
-    public function getUpdatedAt() {
-        return $this->updatedAt;
     }
 
     public function getTitle() {

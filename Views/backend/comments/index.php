@@ -9,7 +9,7 @@
 
         <div class="col-md-3 text-right">
             <?php
-            $url = "/Project-4/comments/" . $comment->getId();
+            $url = "/Project-4/admin/comments/" . $comment->getId();
             ?>
             <form method="post" action="<?= $url; ?>/approve">
                 <button class="btn btn-secondary" type="submit">

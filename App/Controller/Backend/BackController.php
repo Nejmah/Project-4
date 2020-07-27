@@ -16,13 +16,13 @@ class BackController extends Controller {
     }
 
     public function admin() {
-        $this->response('admin', [
+        $this->response('dashboard', [
             'title' => "Bienvenue dans votre espace",
             'totalReported' => $this->manager->getReportedTotal()
         ]);
     }
 
-    public function disconnect()
+    public function logout()
     {
         unset($_SESSION['admin-connected']);
         header('Location: /Project-4');

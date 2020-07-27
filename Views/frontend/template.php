@@ -17,7 +17,7 @@
 	<body>
 		<div class="container">
 			<header>
-				<?php include('navigation.php'); ?>
+				<?php include('partials/navigation.php'); ?>
 			</header>
 
 			<?= $content ?>

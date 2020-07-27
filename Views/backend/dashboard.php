@@ -7,16 +7,16 @@
 <div class="admin-nav">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link moderate-comments" href="/Project-4/moderate"><?= $totalReported ?> commentaires à modérer</a>
+            <a class="nav-link moderate-comments" href="/Project-4/admin/comments/moderate"><?= $totalReported ?> commentaires à modérer</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/Project-4/create">Ajouter un chapitre</a>
+            <a class="nav-link" href="/Project-4/admin/chapters/create">Ajouter un chapitre</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/Project-4/manage">Gérer les chapitres</a>
+            <a class="nav-link" href="/Project-4/admin/chapters/manage">Gérer les chapitres</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/Project-4/password/edit">Changer le mot de passe</a>
+            <a class="nav-link" href="/Project-4/auth/password/edit">Changer le mot de passe</a>
         </li>
 
     </ul>

@@ -9,7 +9,7 @@ class UserController extends Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->renderer->setViewsPath("views/backend/");
+        $this->renderer->setViewsPath("views/backend/user/");
         $this->manager = new UserManager();
 
         // On vérifie la connexion

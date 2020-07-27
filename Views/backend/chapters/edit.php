@@ -1,4 +1,4 @@
-<form class="update-chapter-form" method="post" action="/Project-4/chapters/<?= $chapter->getId(); ?>/update">
+<form class="update-chapter-form" method="post" action="/Project-4/admin/chapters/<?= $chapter->getId(); ?>/update">
     <div class="form-row">
         <div class="form-group col-md-12">
             <input class="title-zone" type="text" name="title" 

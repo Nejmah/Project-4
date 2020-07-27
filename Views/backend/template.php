@@ -17,11 +17,11 @@
 		<div class="container">
 			<header>
 				<h1><?= $title ?></h1>
-				<div class="logout-button">
-					<a href="/Project-4/logout" data-toggle="tooltip" title="Déconnexion">
+				<form class="logout-button" method="post" action="/Project-4/logout">
+					<button class="btn btn-link" type="submit" data-toggle="tooltip">
 						<img src="/Project-4/assets/img/logout.png" alt="logout">
-					</a>
-				</div>
+					</button>
+				</form>
 			</header>
 
 			<main>

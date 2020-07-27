@@ -9,13 +9,13 @@ class ChapterController extends Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->renderer->setViewsPath("views/frontend/");
+        $this->renderer->setViewsPath("views/frontend/chapters/");
         $this->chapterManager = new ChapterManager();
         $this->commentManager = new CommentManager();
     }
 
     public function chapters() {   
-        $this->response('chapters', [
+        $this->response('index', [
             'chapters' => $this->chapterManager->all()
         ]);
     }

@@ -1,4 +1,4 @@
-<form class="create-chapter-form" method="post" action="/Project-4/chapters">
+<form class="create-chapter-form" method="post" action="/Project-4/admin/chapters">
     <div class="form-row">
         <div class="form-group col-md-12">
             <input class="title-zone" type="text" name="title" 
@@ -6,11 +6,15 @@
                 value="<?= $titleValue ?>" 
                 required >
 
-                <?php if (isset($errors['title'])) { ?>
-                <div class="alert alert-danger" role="alert">
-                    <?= $errors['title'] ?>
-                </div>
-                <?php } ?>
+                <?php 
+                if (isset($errors['title'])) { 
+                ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= $errors['title'] ?>
+                    </div>
+                <?php
+                } 
+                ?>
         </div>
     </div>
     <div class="form-row">

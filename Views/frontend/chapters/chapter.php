@@ -36,15 +36,14 @@
                         </div>
                         <div class="col-md-3 comment-buttons">
                             <?php
-                            $url = "/Project-4/comments/" . $comment->getId();
+                            $url = "/Project-4/admin/comments/" . $comment->getId();
 
                             if (isset($_SESSION['admin-connected']) 
                                 && $_SESSION['admin-connected'] == true) {
                                 // L'administrateur est connecté
                                 
-                                if ($comment->getIsReported()
-                                    && $comment->getIsApproved() != 1) {
-                                    // Commentaire déjà signalé mais pas approuvé
+                                if ($comment->getIsApproved() != 1) {
+                                    // Commentaire non approuvé (signalé ou non)
                                     ?>
                                     <form method="post" action="<?= $url; ?>/delete">
                                         <button class="btn btn-danger" type="submit">Supprimer</button>

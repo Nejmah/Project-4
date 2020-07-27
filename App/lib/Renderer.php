@@ -30,6 +30,9 @@ class Renderer {
         $content = ob_get_clean();
 
         $templatePath = $this->viewsPath . 'template.php';
+        if (!file_exists($templatePath)) {
+            $templatePath = $this->viewsPath . '../template.php';
+        }
         require($templatePath);
     }
 }
