@@ -5,16 +5,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item active">
+            <li class="nav-item <?php if ($metaTitle == 'Accueil') {echo 'active';} ?>">
                 <a class="nav-link" href="<?= env("URL_PREFIX") ?>">ACCUEIL</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?php if ($metaTitle == 'A propos') {echo 'active';} ?>">
                 <a class="nav-link" href="<?= env("URL_PREFIX") ?>/about">A PROPOS</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?php if ($metaTitle == 'Chapitres') {echo 'active';} ?>">
                 <a class="nav-link" href="<?= env("URL_PREFIX") ?>/chapters">CHAPITRES</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?php if ($metaTitle == 'Connexion') {echo 'active';} ?>">
                 <?php
                 if (isset($_SESSION['admin-connected']) 
                     && $_SESSION['admin-connected'] == true) {

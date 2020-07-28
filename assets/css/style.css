@@ -6,6 +6,7 @@ body {
 body:not(.admin-page) {
     background-image: url('../img/alaska.jpg');
     background-size: cover;
+    background-attachment: fixed;
 }
 
 h1 {
@@ -64,13 +65,20 @@ footer p {
     color: rgb(60, 106, 141);
 }
 
+.home-titles {
+    /* vh : viewport height */
+    margin-top: 50vh;
+    /* poussé de la moitié de la hauteur du viewport */
+    transform: translateY(-50%);
+    /* tiré de la moitié de sa propre hauteur */
+}
+
 .home-page h1 {
     font-size: 5em;
     font-weight: bold;
     color: rgb(21, 62, 104);
     text-shadow: 1px 1px 2px white;
-
-    margin-top: 125px;
+    /* margin-top: 125px; */
 }
 
 .home-page .under-title {
@@ -81,7 +89,7 @@ footer p {
     font-style: italic;
     font-weight: 700;
     padding-top: 5px;
-    margin-right: 20px;
+    /* margin-right: 20px; */
 }
 
 /*About*/
@@ -199,6 +207,7 @@ footer p {
 }
 
 .comment {
+    position: relative;
     padding: 0 40px 0 40px;
 }
 
@@ -206,7 +215,7 @@ footer p {
     content: "";
     border-bottom: 2px solid grey;
     position: absolute;
-    width: 75%;
+    width: calc(100% - 80px);
 }
 
 .comment-author {
@@ -247,11 +256,11 @@ footer p {
 .login-form,
 .success-message,
 .error-message {
-    margin-top: 190px;
+    /* margin-top: 190px; */
 }
 
 .password-form {
-    margin-top: 240px;
+    /* margin-top: 240px; */
 }
 
 .login-form input,
@@ -268,6 +277,19 @@ footer p {
 
 .invalid-feedback {
     font-size: initial;
+    font-weight: bold;
+}
+
+.password-form-instructions {
+    display: grid;
+    justify-content: center;
+    color: white;
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.password-form-instructions p {
+    font-size: 24px;
     font-weight: bold;
 }
 
@@ -369,17 +391,21 @@ footer p {
     width: 100%;
 }
 
-.button-form-post {
+.button-form-post,
+.button-passwordform-post {
     background-color: rgb(21, 62, 104);
     border-color: rgb(21, 62, 104);
+}
+
+.button-form-post {
     margin-top: 15px;
     margin-bottom: 50px;
 }
 
 .button-form-post:hover {
-    color: rgb(21, 62, 104);
-    background-color: white;
-    border-color: white;
+    /* color: rgb(21, 62, 104); */
+    /* background-color: white; */
+    /* border-color: white; */
 }
 
 .alert {

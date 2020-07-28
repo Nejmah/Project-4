@@ -3,8 +3,7 @@
         <div class="form-row justify-content-center">
             <div class="col-md-3">
                 <?php
-                if (isset($error) && $error == 'invalid-password')
-                {
+                if (isset($error) && $error == 'invalid-password') {
                 ?>
                     <input type="password" class="form-control is-invalid" id="password" name="password" placeholder="Mot de passe" required>
                     <div class="invalid-feedback">

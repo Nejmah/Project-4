@@ -24,13 +24,13 @@ $router->add(new Route('GET', '/about', function () {
 /*Chapters-list*/
 $router->add(new Route('GET', '/chapters', function() {
     $controller = new App\Controller\Frontend\ChapterController();
-    $controller->chapters();
+    $controller->index();
 }));
 
 /*Chapter*/
 $router->add(new Route('GET', '/chapters/[id]', function($id) {
     $controller = new App\Controller\Frontend\ChapterController();
-    $controller->chapter($id);
+    $controller->show($id);
 }));
 
 /*Add-comment*/

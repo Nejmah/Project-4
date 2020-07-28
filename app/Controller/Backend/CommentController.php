@@ -20,7 +20,7 @@ class CommentController extends Controller {
     public function index() {
         $this->response('index', [
             'title' => "Modérer les commentaires",
-            'comments' => $this->manager->commentsToModerate()
+            'comments' => $this->manager->toModerate()
         ]);
     }
 
@@ -47,7 +47,8 @@ class CommentController extends Controller {
 
         // On retourne sur la page du chapitre où le commentaire a été signalé
         $chapterId = $comment->getChapterId();
-        header('Location:' . env("URL_PREFIX") . '/chapters/' . $chapterId);
+        $this->index();
+        // header('Location:' . env("URL_PREFIX") . '/chapters/' . $chapterId);
     }
 }
 ?>

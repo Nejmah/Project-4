@@ -29,9 +29,6 @@ abstract class Controller {
         $_SESSION['inputs'] = [];
     }
 
-    /*
-     $key : title ou content
-     */
     public function hasInputs($key) {
         if ($_SESSION['inputs']) {
             if ($_SESSION['inputs'][$key]) {

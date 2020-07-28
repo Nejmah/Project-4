@@ -14,13 +14,13 @@ class ChapterController extends Controller {
         $this->commentManager = new CommentManager();
     }
 
-    public function chapters() {   
+    public function index() {   
         $this->response('index', [
             'chapters' => $this->chapterManager->all()
         ]);
     }
 
-    public function chapter($id) {
+    public function show($id) {
         $this->response('chapter', [
             'chapter' => $this->chapterManager->find($id),
             'comments' => $this->commentManager->forChapter($id),

@@ -6,8 +6,9 @@ class Renderer {
     protected $metaTitles = [
         'home' => "Accueil",
         'about' => "A propos",
-        'chapters' => "Chapitres",
-        'chapter' => "Chapitres"
+        'index' => "Chapitres",
+        'chapter' => "Chapitres",
+        'login' => "Connexion"
     ];
 
     public function setViewsPath($viewsPath) {

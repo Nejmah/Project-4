@@ -19,15 +19,26 @@ class UserController extends Controller {
     public function edit() {
         // Affiche le formulaire pour modifier le mot de passe
         $this->response('password', [
-            'title' => "Modifier votre mot de passe"
+            'title' => "Modifier votre mot de passe",
         ]);
     }
 
     public function update() {
         $password = $_POST['password'];
-        $hash = password_hash($password, PASSWORD_DEFAULT);
+        
+        // Regex pour contrôler la force du mot de passe
+        $pattern = '/^(?=.*[!@#$%^&*-])(?=.*[0-9])(?=.*[A-Z]).{8,20}$/';
 
-        $this->manager->update($hash);
-        header('Location:' . env("URL_PREFIX") . '/admin');
+        if (preg_match($pattern, $password)) {
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $this->manager->update($hash);
+            header('Location:' . env("URL_PREFIX") . '/admin');
+        } 
+        else {
+            $this->response('password', [
+                'title' => "Modifier votre mot de passe",
+                'error' => "invalid-password"
+            ]);
+        }
     }
 }

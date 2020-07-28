@@ -7,7 +7,19 @@
 <div class="admin-nav">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link moderate-comments" href="<?= env("URL_PREFIX") ?>/admin/comments/moderate"><?= $totalReported ?> commentaires à modérer</a>
+            <a class="nav-link moderate-comments" href="<?= env("URL_PREFIX") ?>/admin/comments/moderate">
+                <?php 
+                if ($totalReported < 2) {
+                ?>
+                    <?= $totalReported ?> commentaire à modérer</a>
+                <?php
+                }
+                else {
+                ?>
+                    <?= $totalReported ?> commentaires à modérer</a>
+                <?php
+                }
+                ?>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="<?= env("URL_PREFIX") ?>/admin/chapters/create">Ajouter un chapitre</a>
