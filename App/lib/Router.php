@@ -59,7 +59,11 @@ class Router {
     }
 
     public function go() {
-        $param = $this->parts[$this->currentRoute->getParamIndex()];
+        $param = "";
+        
+        if (!empty($this->currentRoute->getParamIndex())) {
+            $param = $this->parts[$this->currentRoute->getParamIndex()];
+        }
 		
 		call_user_func($this->currentRoute->getCallback(), $param);
     }
