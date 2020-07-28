@@ -115,7 +115,7 @@ $router->add(new Route('GET', '/admin/comments/moderate', function() {
 }));
 
 /*Report-comment*/
-$router->add(new Route('POST', '/comments/[id]/report', function($id) {
+$router->add(new Route('POST', '/admin/comments/[id]/report', function($id) {
     $controller = new App\Controller\Frontend\CommentController();
     $controller->report($id);
 }));

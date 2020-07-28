@@ -7,9 +7,12 @@
         }
     ],
     "autoload": {
-	"psr-4": {
-	    "App\\": "app/"
-	}
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "env.php", "loadEnv.php"
+        ]
     },
     "require": {
         "classpreloader/classpreloader": "^4.0"

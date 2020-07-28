@@ -20,7 +20,7 @@ class CommentController extends Controller {
     public function index() {
         $this->response('index', [
             'title' => "Modérer les commentaires",
-            'comments' => $this->manager->allReported()
+            'comments' => $this->manager->commentsToModerate()
         ]);
     }
 
@@ -32,7 +32,13 @@ class CommentController extends Controller {
 
         // On retourne sur la page du chapitre où le commentaire a été signalé
         $chapterId = $comment->getChapterId();
-        header('Location: /Project-4/chapters/' . $chapterId);
+
+        if (isset($_POST['from']) && $_POST['from'] == "backend") {
+            header('Location: /Project-4/admin/comments/moderate');
+        }
+        else {
+            header('Location: /Project-4/chapters/' . $chapterId);
+        }
     }
 
     public function delete($id) {

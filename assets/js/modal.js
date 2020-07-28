@@ -3,7 +3,6 @@ $(function () {
     $('.delete-chapter-button').on('click', function () {
         var url = $(this).attr('data-delete-url');
         $('#deleteChapterModal .delete-form').attr('action', url);
-        console.log("ok")
     });
 });
 

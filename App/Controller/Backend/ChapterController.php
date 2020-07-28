@@ -18,6 +18,7 @@ class ChapterController extends Controller {
     }
 
     public function create() {
+        //print_r($_SESSION['errors']); exit;
         $this->response('create', [
             'title' => "Ajouter un nouveau chapitre",
             'titleValue' => $this->hasInputs('title'),

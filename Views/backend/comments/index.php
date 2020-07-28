@@ -12,6 +12,7 @@
             $url = "/Project-4/admin/comments/" . $comment->getId();
             ?>
             <form method="post" action="<?= $url; ?>/approve">
+                <input type="hidden" name="from" value="backend">
                 <button class="btn btn-secondary" type="submit">
                     Approuver
                 </button>
@@ -34,25 +35,23 @@
 <div class="modal fade" id="deleteCommentModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLabel">Attention</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body text-dark">
-            Voulez-vous vraiment supprimer ce commentaire ?
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-            <form method="post" action="#" class="delete-form">
-                <button class="btn btn-danger delete-link" type="submit">
-                    Confirmer
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Attention</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
                 </button>
-            </form>
-            
-            <!-- <a class="btn btn-danger delete-link" href="#">Confirmer</a> -->
-        </div>
+            </div>
+            <div class="modal-body text-dark">
+                Voulez-vous vraiment supprimer ce commentaire ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <form method="post" action="#" class="delete-form">
+                    <button class="btn btn-danger delete-link" type="submit">
+                        Confirmer
+                    </button>
+                </form>            
+            </div>
         </div>
     </div>
 </div>
