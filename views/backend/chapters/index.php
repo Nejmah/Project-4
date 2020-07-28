@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-3 text-right">
             <?php
-            $url = "/Project-4/admin/chapters/" . $chapter->getId();
+            $url = env("URL_PREFIX") . "/admin/chapters/" . $chapter->getId();
             ?>
             <a class="btn btn-secondary"
                 href="<?= $url; ?>/edit">

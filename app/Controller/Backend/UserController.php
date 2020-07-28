@@ -28,6 +28,6 @@ class UserController extends Controller {
         $hash = password_hash($password, PASSWORD_DEFAULT);
 
         $this->manager->update($hash);
-        header('Location: /Project-4/admin');
+        header('Location:' . env("URL_PREFIX") . '/admin');
     }
 }

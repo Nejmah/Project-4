@@ -33,7 +33,7 @@ class FrontController extends Controller {
                 // On ouvre une session
                 $_SESSION['admin-connected'] = true;
                 // et on affiche la page pour l'administrateur
-                header('Location: /Project-4/admin');
+                header('Location:' . env("URL_PREFIX") . '/admin');
             }
             else {
                 // Si le mot de passe est incorrect,

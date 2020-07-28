@@ -27,7 +27,7 @@ class CommentController extends Controller {
             $this->emptyErrorsAndInputs();    
         }
         
-        header('Location: /Project-4/chapters/' . $_POST['chapter_id']);
+        header('Location:' . env("URL_PREFIX") . '/chapters/' . $_POST['chapter_id']);
     }
 
     public function report($id) {
@@ -37,7 +37,7 @@ class CommentController extends Controller {
 
         // On retourne sur la page du chapitre où le commentaire a été signalé
         $chapterId = $comment->getChapterId();
-        header('Location: /Project-4/chapters/' . $chapterId);
+        header('Location:' . env("URL_PREFIX") . '/chapters/' . $chapterId);
     }
 }
 ?>

@@ -9,7 +9,7 @@
 
         <div class="col-md-3 text-right">
             <?php
-            $url = "/Project-4/admin/comments/" . $comment->getId();
+            $url = env("URL_PREFIX") . "/admin/comments/" . $comment->getId();
             ?>
             <form method="post" action="<?= $url; ?>/approve">
                 <input type="hidden" name="from" value="backend">

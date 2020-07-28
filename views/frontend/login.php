@@ -1,5 +1,5 @@
 <main class="login-page">
-    <form class="login-form" method="post" action="/Project-4/login">
+    <form class="login-form" method="post" action="<?= env("URL_PREFIX") ?>/login">
         <div class="form-row justify-content-center">
             <div class="col-md-3">
                 <?php

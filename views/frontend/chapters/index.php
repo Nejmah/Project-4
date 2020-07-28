@@ -15,7 +15,7 @@
 
                     <div class="read-more-button">
                         <a class="btn btn-secondary" 
-                            href="/Project-4/chapters/<?= $chapter->getId(); ?>">
+                            href="<?= env("URL_PREFIX") ?>/chapters/<?= $chapter->getId(); ?>">
                             Lire la suite
                         </a>
                     </div>

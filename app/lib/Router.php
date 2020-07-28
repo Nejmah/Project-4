@@ -17,7 +17,7 @@ class Router {
         $this->uri = $_SERVER['REQUEST_URI'];
 
         // Fix pour site en local
-        $this->uri = str_replace("/Project-4", "", $this->uri);
+        $this->uri = str_replace(env("URL_PREFIX"), "", $this->uri);
 
         $this->verb = $_SERVER['REQUEST_METHOD'];
         $this->parts = Route::uriToArray($this->uri);

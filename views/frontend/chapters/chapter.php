@@ -3,7 +3,7 @@
     <h1>Billet simple pour l'Alaska</h1>
 
     <p class="return">
-        <a href="/Project-4/chapters">Retour à la liste des chapitres</a>
+        <a href="<?= env("URL_PREFIX") ?>/chapters">Retour à la liste des chapitres</a>
     </p>
 
     <div class="chapter-title">
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-md-3 comment-buttons">
                             <?php
-                            $url = "/Project-4/admin/comments/" . $comment->getId();
+                            $url = env("URL_PREFIX") . "/admin/comments/" . $comment->getId();
 
                             if (isset($_SESSION['admin-connected']) 
                                 && $_SESSION['admin-connected'] == true) {
@@ -95,7 +95,7 @@
 
     <h3 class="add-comment">Ajouter un commentaire</h3>
     
-    <form class="comment-form" method="post" action="/Project-4/comments">
+    <form class="comment-form" method="post" action="<?= env("URL_PREFIX") ?>/comments">
         <input type="hidden" name="chapter_id" value="<?= $chapter->getId();?>">
         <input class="comment-title-input" type="text" name="author" id="author" 
             placeholder="Votre pseudo" value="<?= $authorValue ?>"required />

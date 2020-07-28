@@ -20,7 +20,7 @@ abstract class Controller {
         // S'il y a une session,
         if ($_SESSION['admin-connected'] == false) {
             // Sinon, on redirige sur la page de connexion
-            header('Location: /Project-4/login');
+            header('Location:' . env("URL_PREFIX") . '/login');
         }
     }
 

@@ -34,10 +34,10 @@ class CommentController extends Controller {
         $chapterId = $comment->getChapterId();
 
         if (isset($_POST['from']) && $_POST['from'] == "backend") {
-            header('Location: /Project-4/admin/comments/moderate');
+            header('Location:' . env("URL_PREFIX") . '/admin/comments/moderate');
         }
         else {
-            header('Location: /Project-4/chapters/' . $chapterId);
+            header('Location:' . env("URL_PREFIX") . '/chapters/' . $chapterId);
         }
     }
 
@@ -47,7 +47,7 @@ class CommentController extends Controller {
 
         // On retourne sur la page du chapitre où le commentaire a été signalé
         $chapterId = $comment->getChapterId();
-        header('Location: /Project-4/chapters/' . $chapterId);
+        header('Location:' . env("URL_PREFIX") . '/chapters/' . $chapterId);
     }
 }
 ?>

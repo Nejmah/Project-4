@@ -5,21 +5,21 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Administration</title>
-        <link rel="icon" type="image/png" href="/Project-4/assets/img/favicon.png">
+        <link rel="icon" type="image/png" href="<?= env("URL_PREFIX") ?>/assets/img/favicon.png">
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<link rel="stylesheet" href="/Project-4/assets/css/style.css">
-        <link rel="stylesheet" href="/Project-4/assets/css/fonts.css">
+		<link rel="stylesheet" href="<?= env("URL_PREFIX") ?>/assets/css/style.css">
+        <link rel="stylesheet" href="<?= env("URL_PREFIX") ?>/assets/css/fonts.css">
   	</head>
 	
 	<body class="admin-page">
 		<div class="container">
 			<header>
 				<h1><?= $title ?></h1>
-				<form class="logout-button" method="post" action="/Project-4/logout">
+				<form class="logout-button" method="post" action="<?= env("URL_PREFIX") ?>/logout">
 					<button class="btn btn-link" type="submit" data-toggle="tooltip">
-						<img src="/Project-4/assets/img/logout.png" alt="logout">
+						<img src="<?= env("URL_PREFIX") ?>/assets/img/logout.png" alt="logout">
 					</button>
 				</form>
 			</header>
@@ -42,6 +42,6 @@
 				menubar: false,
 			});
 		</script>
-		<script src="/Project-4/assets/js/modal.js"></script>
+		<script src="<?= env("URL_PREFIX") ?>/assets/js/modal.js"></script>
 	</body>
 </html>

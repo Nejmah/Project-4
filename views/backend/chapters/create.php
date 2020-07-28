@@ -1,4 +1,4 @@
-<form class="create-chapter-form" method="post" action="/Project-4/admin/chapters">
+<form class="create-chapter-form" method="post" action="<?= env("URL_PREFIX") ?>/admin/chapters">
     <div class="form-row">
         <div class="form-group col-md-12">
             <input class="title-zone" type="text" name="title" 
