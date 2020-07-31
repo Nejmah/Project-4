@@ -3,27 +3,28 @@
     ?>
     <div class="row comments-table align-items-center">
 
-        <div class="col-md-9 comment-title-table">
+        <div class="col-md-8 comment-title-table">
             <?= htmlentities($comment->getContent()); ?>
         </div>
 
-        <div class="col-md-3 text-right">
+        <div class="col-md-4 text-right">
             <?php
             $url = env("URL_PREFIX") . "/admin/comments/" . $comment->getId();
             ?>
+            <a class="eye-link" href="<?= env("URL_PREFIX") ?>/chapters/<?= $comment->getChapterId(); ?>">
+                <img class="eye-img" src="<?= env("URL_PREFIX") ?>/assets/img/eye.png" alt="eye">
+            </a>
             <form method="post" action="<?= $url; ?>/approve">
                 <input type="hidden" name="from" value="backend">
                 <button class="btn btn-secondary" type="submit">
                     Approuver
                 </button>
             </form>
-            <form method="post" action="<?= $url; ?>/delete">
-                <button class="btn btn-danger delete-comment-button" type="button"
-                    data-toggle="modal" data-target="#deleteCommentModal" 
-                    data-delete-url="<?= $url; ?>/delete">
-                    Supprimer
-                </button>
-            </form>
+            <button class="btn btn-danger delete-comment-button" type="button"
+                data-toggle="modal" data-target="#deleteCommentModal" 
+                data-delete-url="<?= $url; ?>/delete">
+                Supprimer
+            </button>
         </div>
         
     </div>

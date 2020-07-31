@@ -10,6 +10,8 @@ $(function () {
     // Code pour la popup de suppression d'un commentaire
     $('.delete-comment-button').on('click', function () {
         var url = $(this).attr('data-delete-url');
+        console.log(url)
         $('#deleteCommentModal .delete-form').attr('action', url);
+        console.log($('#deleteCommentModal .delete-form').attr('action'))
     });
 });

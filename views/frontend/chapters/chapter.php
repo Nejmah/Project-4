@@ -45,9 +45,11 @@
                                 if ($comment->getIsApproved() != 1) {
                                     // Commentaire non approuvé (signalé ou non)
                                     ?>
-                                    <form method="post" action="<?= $url; ?>/delete">
-                                        <button class="btn btn-danger" type="submit">Supprimer</button>
-                                    </form>
+                                    <button class="btn btn-danger delete-comment-button" type="button"
+                                        data-toggle="modal" data-target="#deleteCommentModal" 
+                                        data-delete-url="<?= $url; ?>/delete">
+                                        Supprimer
+                                    </button>
                                     <form method="post" action="<?= $url; ?>/approve">
                                         <button class="btn btn-secondary approve-button" type="submit">Approuver</button>
                                     </form>
@@ -120,3 +122,28 @@
         <input class="publish-button btn btn-secondary" type="submit" value="Publier">
     </form>
 </main>
+
+<!-- Popup pour confirmer la suppression d'un billet -->
+<div class="modal fade" id="deleteCommentModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Attention</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-dark">
+                Voulez-vous vraiment supprimer ce commentaire ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <form method="post" action="#" class="delete-form">
+                    <button class="btn btn-danger delete-link" type="submit">
+                        Confirmer
+                    </button>
+                </form>            
+            </div>
+        </div>
+    </div>
+</div>
