@@ -13,6 +13,19 @@ h1 {
     text-align: center;
 }
 
+header {
+    /* position: fixed;
+    width: 100%;
+    max-width: 1110px; */
+}
+
+.home-page,
+.login-page {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
 /*Footer*/
 
 footer p {
@@ -457,6 +470,14 @@ footer p {
 
 .comments-table form {
     display: initial;
+}
+
+.eye-img {
+    margin-right: 10px;
+}
+
+.eye-link:hover {
+    text-decoration: none;
 }
 
 /* Modal de suppression d'un billet */

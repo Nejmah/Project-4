@@ -2,13 +2,16 @@
     foreach ($chapters as $chapter) {
     ?>
     <div class="row chapters-table align-items-center">
-        <div class="col-md-9 chapter-title-table">
+        <div class="col-md-8 chapter-title-table">
             <?= htmlspecialchars($chapter->getTitle()); ?>
         </div>
-        <div class="col-md-3 text-right">
+        <div class="col-md-4 text-right">
             <?php
             $url = env("URL_PREFIX") . "/admin/chapters/" . $chapter->getId();
             ?>
+            <a class="eye-link" href="<?= env("URL_PREFIX") ?>/chapters/<?= $chapter->getId(); ?>">
+                <img class="eye-img" src="<?= env("URL_PREFIX") ?>/assets/img/eye.png" alt="eye">
+            </a>
             <a class="btn btn-secondary"
                 href="<?= $url; ?>/edit">
                 Modifier

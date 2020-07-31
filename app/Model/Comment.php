@@ -16,12 +16,12 @@ class Comment extends Model {
     // GETTERS
     // Renvoie la valeur d'un attribut
 
-    public function getChapterId() {
-        return $this->chapterId;
-    }
-
     public function getId() {
         return $this->id;
+    }
+
+    public function getChapterId() {
+        return $this->chapterId;
     }
 
     public function getCreatedAt() {
@@ -91,7 +91,7 @@ class Comment extends Model {
             $this->errors['content'] = "Votre commentaire est trop court !";
         }
 
-        if (strlen($content) > 50) {
+        if (strlen($content) > 100) {
             $this->errors['content'] = "Votre commentaire est trop long !";
         }
 
