@@ -1,7 +1,5 @@
 <main class="about-page">
-    
-    <p class="under-title">À propos de l'auteur</p>
-
+    <h1>À propos de l'auteur</h1>
     <div class="author-presentation">
         <p class="text-presentation">Acteur et écrivain français, <strong>Jean Forteroche</strong>
         est passionné d'alpinisme. Après avoir écrit <em>Tragédie à l'Everest</em>, récit qui lui 
@@ -10,9 +8,4 @@
         l'histoire véridique d'un jeune homme qui a troqué la civilisation pour un retour à la vie
         sauvage... Découvrez ses aventures, chapitre par chapitre, sur le blog de l'auteur...</p>
     </div>
-
-    <p class="chapters-button text-center">
-        <a class="btn btn-secondary btn-lg" href="<?= env("URL_PREFIX") ?>/chapters">Chapitres</a>
-    </p>
-    
 </main>

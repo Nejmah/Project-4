@@ -11,6 +11,12 @@
     .fixed-header {
         max-width: 930px;
     }
+
+    .chapter-article {
+        width: 50%;
+    }
+
+
 }
 
 @media (max-width: 991px) {
@@ -22,6 +28,10 @@
         background: rgb(132, 149, 174);
         border-radius: 15px;
     }
+
+    h3 {
+        font-size: 1.3em;
+    }
 }
 
 @media (max-width: 767px) {
@@ -31,6 +41,23 @@
 
     .fixed-header {
         max-width: 510px;
+    }
+
+    .about-page h1 {
+        font-size: 1.75em;
+    }
+
+    .text-presentation {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    .chapters-page h1 {
+        font-size: 2em;
+    }
+
+    .chapter-article {
+        width: 100%;
     }
 }
 
