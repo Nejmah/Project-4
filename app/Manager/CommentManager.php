@@ -30,8 +30,6 @@ class CommentManager extends Manager {
             'isReported' => $comment->getReportedCount(),
             'isApproved' => $comment->getIsApproved()
         ));
-
-        return $comment;
     }
 
     // Supprime un commentaire
@@ -56,7 +54,7 @@ class CommentManager extends Manager {
     // Retourne la liste de tous les commentaires signalés
     public function toModerate() {
         $comments = [];
-
+        
         $req = $this->db->query('SELECT id, chapter_id AS chapterId, author, content, is_reported AS isReported, is_approved AS isApproved, DATE_FORMAT (created_at, \'%d/%m/%y\') AS createdAt FROM comments WHERE is_reported > 0 AND is_approved IS NULL ORDER BY created_at');
 
         while ($data = $req->fetch(\PDO::FETCH_ASSOC)) { // Chaque entrée sera récupérée et placée dans le tableau $chapters

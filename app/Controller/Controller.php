@@ -10,16 +10,16 @@ abstract class Controller {
 
     public function __construct() {
         $this->renderer = new Renderer();
-    }
+    } 
 
     public function response($viewName, $args = []) {
         $this->renderer->render($viewName, $args);
     }
 
     public function isConnected() {
-        // S'il y a une session,
+        // Si on n'est pas connecté,
         if ($_SESSION['admin-connected'] == false) {
-            // Sinon, on redirige sur la page de connexion
+            // On redirige sur la page de connexion
             header('Location:' . env("URL_PREFIX") . '/login');
         }
     }

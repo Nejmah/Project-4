@@ -14,16 +14,16 @@ h1 {
 }
 
 header {
-    /* position: fixed;
+    position: fixed;
     width: 100%;
-    max-width: 1110px; */
+    max-width: 1110px;
 }
 
 .home-page,
 .login-page {
-    /* display: flex;
+    display: flex;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
 }
 
 /*Footer*/
