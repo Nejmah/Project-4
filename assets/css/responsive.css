@@ -1,12 +1,31 @@
-@media (max-width: 768px) {
+@media (max-width: 575px) {
+    .fixed-header {
+        max-width: calc(100% - 30px);
+    }
+}
+
+@media (max-width: 767px) {
     .moutain-img {
         width: 120px;
     }
 
     .fixed-header {
-        max-width: calc(100% - 30px);
+        max-width: 510px;
+    }
+}
+
+@media (max-width: 991px) {
+    .fixed-header {
+        max-width: 690px;
     }
 
+    .navbar-nav {
+        background: rgb(132, 149, 174);
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 1199px) {
     .home-titles h1 {
         font-size: 3em;
     }
@@ -15,9 +34,15 @@
         font-size: 1.5em;
         margin-top: 20px;
     }
+
+    .fixed-header {
+        max-width: 930px;
+    }
 }
 
 @media (min-width: 992px) {
+
+    /* Alignement justifié de la barre de navigation */
     .navbar-expand-lg .navbar-nav {
         width: 100%;
         justify-content: space-between;
