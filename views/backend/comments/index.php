@@ -3,11 +3,11 @@
     ?>
     <div class="row comments-table align-items-center">
 
-        <div class="col-md-8 comment-title-table">
+        <div class="col-xl-8 col-12 comment-title-table">
             <?= htmlentities($comment->getContent()); ?>
         </div>
 
-        <div class="col-md-4 text-right">
+        <div class="col-xl-4 text-right">
             <?php
             $url = env("URL_PREFIX") . "/admin/comments/" . $comment->getId();
             ?>

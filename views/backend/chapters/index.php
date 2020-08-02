@@ -2,10 +2,10 @@
     foreach ($chapters as $chapter) {
     ?>
     <div class="row chapters-table align-items-center">
-        <div class="col-md-8 chapter-title-table">
+        <div class="col-xl-8 col-12 chapter-title-table">
             <?= htmlspecialchars($chapter->getTitle()); ?>
         </div>
-        <div class="col-md-4 text-right">
+        <div class="col-xl-4 text-right">
             <?php
             $url = env("URL_PREFIX") . "/admin/chapters/" . $chapter->getId();
             ?>

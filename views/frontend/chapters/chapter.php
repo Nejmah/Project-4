@@ -31,10 +31,10 @@
                     </div>
 
                     <div class="row comment-content">
-                        <div class="comment-text col-md-9">
+                        <div class="comment-text col-lg-9">
                             <?= htmlentities($comment->getContent()); ?>
                         </div>
-                        <div class="col-md-3 comment-buttons">
+                        <div class="col-lg-3 comment-buttons">
                             <?php
                             $url = env("URL_PREFIX") . "/admin/comments/" . $comment->getId();
 

@@ -39,6 +39,10 @@ h3 {
 
 /*Footer*/
 
+footer {
+    text-align: center;
+}
+
 footer p {
     color: white;
 }
@@ -51,12 +55,6 @@ footer p {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    text-align: center;
-}
-
-.chapters-page+footer,
-.chapter-page+footer {
-    text-align: center;
 }
 
 /*----------------------------------------------
@@ -263,7 +261,6 @@ footer p {
 }
 
 .publish-button {
-    width: 10%;
     margin: auto;
     margin-top: 30px;
 }
@@ -376,7 +373,7 @@ footer p {
     border-radius: 5px;
 }
 
-.admin-nav li:not(:last-child) {
+.admin-nav li {
     margin-bottom: 20px;
 }
 

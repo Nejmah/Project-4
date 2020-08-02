@@ -10,7 +10,7 @@
 
 <form class="password-form" method="post" action="<?= env("URL_PREFIX") ?>/auth/password/update">
     <div class="form-row justify-content-center">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-sm-6 col-9">
             <?php
             if (isset($error) && $error == 'invalid-password') {
             ?>
@@ -27,7 +27,7 @@
             }
             ?>
         </div>
-        <div class="col-md-1">
+        <div class="col-lg-1 text-center">
             <button class="btn btn-primary button-passwordform-post" type="submit">Valider</button>
         </div>
     </div>
