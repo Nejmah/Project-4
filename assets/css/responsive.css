@@ -15,8 +15,6 @@
     .chapter-article {
         width: 50%;
     }
-
-
 }
 
 @media (max-width: 991px) {
@@ -25,13 +23,28 @@
     }
 
     .navbar-nav {
-        background: rgb(132, 149, 174);
+        background: rgb(130, 151, 174);
         border-radius: 15px;
     }
 
     h3 {
-        font-size: 1.3em;
+        font-size: 1.3rem;
     }
+
+    .admin-page h1 {
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .admin-page .logout-button {
+        display: none;
+    }
+
+    .large-logout-button {
+        display: inherit;
+    }
+
+
 }
 
 @media (max-width: 767px) {
@@ -64,6 +77,12 @@
 @media (max-width: 575px) {
     .fixed-header {
         max-width: calc(100% - 30px);
+    }
+}
+
+@media (min-width: 768px) {
+    .chapter-content {
+        min-height: 200px;
     }
 }
 

@@ -30,6 +30,12 @@
         <li class="nav-item">
             <a class="nav-link" href="<?= env("URL_PREFIX") ?>/auth/password/edit">Changer le mot de passe</a>
         </li>
-
+        <li class="nav-item">
+            <form method="post" action="<?= env("URL_PREFIX") ?>/logout">
+                <button class="btn large-logout-button" type="submit" data-toggle="tooltip">
+                    Déconnexion
+                </button>
+            </form>
+        </li>
     </ul>
 </div>

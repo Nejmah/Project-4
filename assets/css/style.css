@@ -13,6 +13,10 @@ h1 {
     text-align: center;
 }
 
+h3 {
+    font-size: 1.5rem;
+}
+
 .fixed-header {
     position: fixed;
     width: 100%;
@@ -186,7 +190,7 @@ footer p {
 
 .chapter-content {
     background-color: white;
-    padding: 20px 40px 20px 40px;
+    padding: 25px;
     margin-bottom: 30px;
 }
 
@@ -270,16 +274,6 @@ footer p {
 
 /*Login*/
 
-.login-form,
-.success-message,
-.error-message {
-    /* margin-top: 190px; */
-}
-
-.password-form {
-    /* margin-top: 240px; */
-}
-
 .login-form input,
 .login-form button,
 .password-form input,
@@ -327,6 +321,10 @@ footer p {
     bottom: 20px;
 }
 
+.large-logout-button {
+    display: none;
+}
+
 .admin-page header img {
     width: 80%;
 }
@@ -352,7 +350,8 @@ footer p {
     margin-right: 10px;
 }
 
-.admin-page .nav-link {
+.admin-page .nav-link,
+.large-logout-button {
     padding: 12px;
 }
 
@@ -369,7 +368,8 @@ footer p {
     width: 50%;
 }
 
-.admin-nav li {
+.admin-nav li,
+.large-logout-button {
     font-size: 24px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.9);
@@ -380,16 +380,23 @@ footer p {
     margin-bottom: 20px;
 }
 
-.admin-nav li a {
+.admin-nav li a,
+.large-logout-button {
     color: rgb(60, 106, 141);
+}
+
+.large-logout-button {
+    width: 100%;
 }
 
 .admin-nav .moderate-comments {
     color: red;
 }
 
-.admin-nav li a:hover {
+.admin-nav li a:hover,
+.large-logout-button:hover {
     font-weight: bold;
+    color: rgb(60, 106, 141);
 }
 
 /* Create-chapter */
