@@ -21,7 +21,7 @@
                 if (isset($_SESSION['admin-connected']) 
                     && $_SESSION['admin-connected'] == true) {
                 ?>
-                    <a class="nav-link" href="<?= env("URL_PREFIX") ?>/admin">ADMINISTRATION</a>
+                    <a class="nav-link" href="<?= env("URL_PREFIX") ?>/admin">ADMIN</a>
                 <?php
                 }
                 else {

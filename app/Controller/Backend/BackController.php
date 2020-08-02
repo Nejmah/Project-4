@@ -25,7 +25,7 @@ class BackController extends Controller {
     public function logout()
     {
         unset($_SESSION['admin-connected']);
-        header('Location:' . env("URL_PREFIX"));
+        header('Location:' . env("URL_PREFIX") . "/");
     }
 }
 ?>
