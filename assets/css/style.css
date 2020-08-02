@@ -286,6 +286,7 @@ footer p {
 .invalid-feedback {
     font-size: initial;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .password-form-instructions {
@@ -299,6 +300,10 @@ footer p {
 .password-form-instructions p {
     font-size: 24px;
     font-weight: bold;
+}
+
+.alert-info {
+    margin-top: 60px;
 }
 
 /*Administration*/

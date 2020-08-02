@@ -31,4 +31,19 @@
             <button class="btn btn-primary button-passwordform-post" type="submit">Valider</button>
         </div>
     </div>
+
+    <!-- Report-Alert : message de succès -->
+    <?php
+    if (isset($passwordUpdated)) {
+    ?>
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        Votre mot de passe a bien été enregistré.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <?php
+    }
+    ?>
+
 </form>

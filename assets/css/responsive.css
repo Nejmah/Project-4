@@ -31,6 +31,11 @@
         font-size: 1.3rem;
     }
 
+    .text-presentation {
+        font-size: 18px;
+        padding: 15px;
+    }
+
     .chapter-title-table,
     .comment-title-table {
         margin-bottom: 16px;
@@ -43,6 +48,15 @@
     .comment-text {
         margin-bottom: 16px;
     }
+
+    .button-passwordform-post {
+        margin-bottom: 30px;
+    }
+
+    .alert-info {
+        margin-top: 30px;
+    }
+
 }
 
 @media (max-width: 767px) {
@@ -56,11 +70,6 @@
 
     .about-page h1 {
         font-size: 1.75em;
-    }
-
-    .text-presentation {
-        font-size: 18px;
-        padding: 15px;
     }
 
     .chapters-page h1 {
@@ -113,6 +122,15 @@
 @media (max-width: 575px) {
     .fixed-header {
         max-width: calc(100% - 30px);
+    }
+
+    .chapter-title-table,
+    .comment-title-table {
+        font-size: 18px;
+    }
+
+    .alert-info {
+        margin-top: 15px;
     }
 }
 

@@ -28,7 +28,7 @@
             <a class="nav-link" href="<?= env("URL_PREFIX") ?>/admin/chapters/manage">Gérer les chapitres</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="<?= env("URL_PREFIX") ?>/auth/password/edit">Changer le mot de passe</a>
+            <a class="nav-link" href="<?= env("URL_PREFIX") ?>/auth/password/edit">Modifier le mot de passe</a>
         </li>
         <li class="nav-item">
             <form method="post" action="<?= env("URL_PREFIX") ?>/logout">
