@@ -7,8 +7,11 @@ class CommentManager extends Manager {
 
     // Ajoute un commentaire à la BDD
     public function add(Comment $comment) {
+        // On transforme la date dans le bon format
+        // (DateTime et DateTimeZone sont des classes PHP
+        // qui ne sont pas dans mon namespace d'où \ devant)
         $now = new \DateTime("now", new \DateTimeZone('Europe/Paris'));
-        $date = $now->format('Y-m-d H:i:s');
+        $date = $now->format('Y-m-d H:i:s'); // exemple : "2019-12-31 23:30:59"
 
         $req = $this->db->prepare('INSERT INTO comments (chapter_id, created_at, author, content) VALUES (:chapter_id, :creation_date, :author, :content)');
         $req->execute(array(
@@ -64,7 +67,7 @@ class CommentManager extends Manager {
         return $comments;
     }
     
-    // Retourne le nombre de signalements (pour les commentaires non approuvés)
+    // Retourne le nombre de commentaires signalés (non approuvés)
     public function getTotalReported() {
         $req = $this->db->query('SELECT COUNT(*) AS total FROM comments WHERE is_reported > 0 AND is_approved IS NULL ');
         $result = $req->fetch();

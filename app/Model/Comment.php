@@ -14,7 +14,6 @@ class Comment extends Model {
     private $isApproved;
     
     // GETTERS
-    // Renvoie la valeur d'un attribut
 
     public function getId() {
         return $this->id;
@@ -52,7 +51,6 @@ class Comment extends Model {
     }
 
     // SETTERS
-    // Assigne une valeur à un attribut
 
     public function setChapterId($id) {
         $this->chapterId = $id;

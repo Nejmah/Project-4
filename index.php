@@ -7,7 +7,7 @@ use App\lib\Router;
 
 $router = new Router();
 
-require_once 'app/config/routes.php';
+require_once 'app/routes.php';
 
 $match = $router->match();
 

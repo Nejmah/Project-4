@@ -24,7 +24,7 @@ class CommentController extends Controller {
         if ($comment->isValid()) {
             $this->manager->add($comment);
             // On vide errors & inputs
-            $this->emptyErrorsAndInputs();    
+            $this->emptyErrorsAndInputs();
         }
         
         header('Location:' . env("URL_PREFIX") . '/chapters/' . $_POST['chapter_id']);

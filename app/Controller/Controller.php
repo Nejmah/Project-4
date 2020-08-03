@@ -29,6 +29,7 @@ abstract class Controller {
         $_SESSION['inputs'] = [];
     }
 
+    // Pré-remplir les formulaires (dans les cas où il y a des erreurs)
     public function hasInputs($key) {
         if ($_SESSION['inputs']) {
             if ($_SESSION['inputs'][$key]) {

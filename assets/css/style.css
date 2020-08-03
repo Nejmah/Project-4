@@ -387,11 +387,11 @@ footer p {
     color: rgb(60, 106, 141);
 }
 
-.large-logout-button {
-    width: 100%;
+.admin-nav li .moderate-comments {
+    color: red;
 }
 
-.admin-nav .moderate-comments {
+.admin-nav li .moderate-comments:hover {
     color: red;
 }
 
@@ -399,6 +399,12 @@ footer p {
 .large-logout-button:hover {
     font-weight: bold;
     color: rgb(60, 106, 141);
+}
+
+
+
+.large-logout-button {
+    width: 100%;
 }
 
 /* Create-chapter */

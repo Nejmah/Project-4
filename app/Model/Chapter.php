@@ -11,7 +11,6 @@ class Chapter extends Model {
     private $content;
     
     // GETTERS
-    // Renvoie la valeur d'un attribut
 
     public function getId() {
         return $this->id;
@@ -30,7 +29,6 @@ class Chapter extends Model {
     }
 
     // SETTERS
-    // Assigne une valeur à un attribut
 
     public function setId($id) {
 

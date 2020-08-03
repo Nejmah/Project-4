@@ -30,25 +30,25 @@ class CommentController extends Controller {
         $comment->isApproved = 1;
         $this->manager->update($comment);
 
-        // On retourne sur la page du chapitre où le commentaire a été signalé
         $chapterId = $comment->getChapterId();
-
-        if (isset($_POST['from']) && $_POST['from'] == "backend") {
-            header('Location:' . env("URL_PREFIX") . '/admin/comments/moderate');
-        }
-        else {
-            header('Location:' . env("URL_PREFIX") . '/chapters/' . $chapterId);
-        }
+        $this->redirect($chapterId);
     }
 
     public function delete($id) {
         $comment = $this->manager->find($id);
         $this->manager->delete($comment);
 
-        // On retourne sur la page du chapitre où le commentaire a été signalé
         $chapterId = $comment->getChapterId();
-        $this->index();
-        // header('Location:' . env("URL_PREFIX") . '/chapters/' . $chapterId);
+        $this->redirect($chapterId);
+    }
+
+    private function redirect($chapterId) {
+        if (isset($_POST['from']) && $_POST['from'] == "backend") {
+            $this->index();
+        }
+        else {
+            header('Location:' . env("URL_PREFIX") . '/chapters/' . $chapterId);
+        }
     }
 }
 ?>
