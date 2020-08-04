@@ -102,7 +102,6 @@ footer p {
     font-weight: bold;
     color: rgb(21, 62, 104);
     text-shadow: 1px 1px 2px white;
-    /* margin-top: 125px; */
 }
 
 .home-page .under-title {
@@ -113,7 +112,6 @@ footer p {
     font-style: italic;
     font-weight: 700;
     padding-top: 5px;
-    /* margin-right: 20px; */
 }
 
 /*About*/
@@ -401,8 +399,6 @@ footer p {
     color: rgb(60, 106, 141);
 }
 
-
-
 .large-logout-button {
     width: 100%;
 }
@@ -426,7 +422,6 @@ footer p {
 .button-form-post,
 .button-passwordform-post {
     background-color: rgb(21, 62, 104);
-    border-color: rgb(21, 62, 104);
 }
 
 .button-form-post {
@@ -434,14 +429,7 @@ footer p {
     margin-bottom: 50px;
 }
 
-.button-form-post:hover {
-    /* color: rgb(21, 62, 104); */
-    /* background-color: white; */
-    /* border-color: white; */
-}
-
 .alert {
-    /* margin-top: 10px; */
     margin-bottom: 30px;
 }
 
