@@ -1,5 +1,5 @@
 <div class="return-button">
-    <a href="<?= env("URL_PREFIX") ?>" data-toggle="tooltip" title="Retour au site">
+    <a href="<?= env("URL_PREFIX") . "/"?>" data-toggle="tooltip" title="Retour au site">
         <img class="moutain-img" src="<?= env("URL_PREFIX") ?>/assets/img/mountain.png" alt="mountain">
     </a>
 </div>
